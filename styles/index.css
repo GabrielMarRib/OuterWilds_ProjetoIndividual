@@ -1,0 +1,258 @@
+ @font-face {
+     font-family: 'ITC_Serif-Regular';
+     src: url('./assets/OuterWildsFont/ITC SerifGothic.ttf')
+ }
+
+ @font-face {
+     font-family: 'ITC_Serif-Bold';
+     src: url('./assets/OuterWildsFont/ITC SerifGothicBold.ttf')
+ }
+
+ /* Versão um */
+@keyframes flutuacaoSolta1 {
+  0%   { 
+    transform: translate(0, 0); 
+  }
+  15%  { 
+    transform: translate(-3px, -8px); /* Sobe rápido */
+  }
+  38%  { 
+    transform: translate(5px, 3px);  /* Desce devagar para a direita */
+  }
+  50%  { 
+    transform: translate(8px, -5px); /* Sobe para a direita */
+  }
+  77%  { 
+    transform: translate(-5px, 6px); /* Desce rápido para a esquerda */
+  }
+  100% { 
+    transform: translate(0, 0);      /* Volta ao início */
+  }
+}
+
+/* Versão dois */
+@keyframes flutuacaoSolta2 {
+  0%   { 
+    transform: translate(0, 0); 
+    animation-timing-function: ease-in; /* Começa acelerando */
+  }
+  15%  { 
+    transform: translate(-3px, -5px); 
+    animation-timing-function: ease-out; /* Desacelera para a próxima... */
+  }
+  38%  { 
+    transform: translate(2px, 5px);  
+    animation-timing-function: ease-in-out; /* ...que é suave */
+  }
+  50%  { 
+    /* (Corrigi seu comentário: -4px, 9px é para baixo e esquerda) */
+    transform: translate( -4px, 9px); 
+    animation-timing-function: linear; /* Movimento reto e rápido */
+  }
+  77%  { 
+    transform: translate(4px, -7px); 
+    animation-timing-function: ease-out; /* Termina desacelerando */
+  }
+  100% { 
+    transform: translate(0, 0);      
+  }
+}
+
+
+
+ * {
+     font-family: 'ITC_Serif-Regular', Murecho;
+ }
+
+ body {
+     margin: 0;
+
+ }
+
+ .container-video {
+     height: 100vh;
+     width: 100vw;
+     z-index: -1;
+ }
+
+ .container-video video {
+     position: fixed;
+     width: 100%;
+     height: 100%;
+     object-fit: cover;
+     background-color: antiquewhite;
+
+ }
+
+ .container-logo {
+     display: flex;
+     justify-content: center;
+     align-items: center;
+ }
+
+ .container-logo img {
+     width: 90%;
+     height: 90%;
+ }
+
+ .container-options {
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     /* background-color: rgb(162, 0, 255); */
+    }
+    
+    .container-options .Form {
+        display: flex;
+        /* border: 1px solid white; */
+        width: 100%;
+        height: 100%;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-top: 50px;
+        gap: 10px;
+
+ }
+
+ .HR {
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     width: 100%;
+     margin-top: 15px;
+ }
+ .HR div{
+     border: dashed 1px grey;
+     width: 90%;
+ }
+
+ .container-options .Form .option {
+     display: flex;
+     align-items: center;
+     justify-content: start;
+     width: 100%;
+     font-size: 32px;
+     color: white;
+     gap: 15px;
+
+     /* font-family: Murecho; */
+     font-weight: bold;
+     cursor: pointer;
+     flex-direction: row;
+
+     /* Efeito Teste */
+     
+  animation-duration: 35s; /* Duração longa para um efeito suave */
+  animation-timing-function: ease-in-out; /* Acelera e desacelera */
+  animation-iteration-count: infinite; /* Repete para sempre */
+}
+
+/* Aplicando a animação */
+.Form .option:nth-child(1){ animation-name: flutuacaoSolta1;}
+.Form .option:nth-child(2){ animation-name: flutuacaoSolta2;}
+.Form .option:nth-child(3){ animation-name: flutuacaoSolta1;}
+.Form .option:nth-child(4){ animation-name: flutuacaoSolta2;}
+.Form .option:nth-child(5){ animation-name: flutuacaoSolta1;}
+
+
+
+
+
+ 
+  .container-options .Form .option span{
+      font-family: Murecho;
+      font-size: 32px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+      margin-left: 15px;
+  }
+.Form .option .icons{
+    width: 35px;
+ 
+    
+}
+ .PointerOption {
+     width: 9%;
+     opacity: 0%;
+     vertical-align: middle;
+    
+ }
+
+ .option:hover .PointerOption {
+     opacity: 100%;
+
+ }
+
+ .container-options .Form .option:hover {
+     color: #4CBCC3;
+
+ }
+
+ .container-body {
+     position: fixed;
+     z-index: 1;
+     width: auto;
+     height: auto;
+     /* background-color: rgb(3, 32, 253); */
+     top: 7%;
+     left: 10%;
+ }
+
+ .header-text-name{
+     position: fixed;
+     top: 5px;
+     left: 5px;
+     color: white;
+     font-family: Murecho;
+     font-size: 12px;
+     font-weight: bold;
+     z-index: 1;
+ }
+
+
+ .container-UserInfo{
+    position: fixed;
+    right: 0;
+    top:0;
+    display: flex;
+    width: 35vw;
+    height: 20vh;
+    /* border: solid white 1px; */
+
+ }
+ .container-UserInfo .Buttons{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: first baseline;
+    width: 100%;
+    padding-top: 3%;
+    gap: 30px;
+ }
+ .container-UserInfo .Buttons button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color:  #060F1E;
+    border-radius: 10px;
+    box-shadow: 10px 10px 10px #050f1f;
+    color: white;
+    height: 40px;
+    width: 200px;
+    text-align: center;
+    cursor: pointer;
+    font-family: Murecho;
+    font-size: 20px;
+    font-weight: 600;
+    animation: flutuacaoSolta1 30s infinite;
+    border: #ffffff solid 0.01rem;
+ }
+ .Buttons button:hover{
+    background-color: hsl(227, 69%, 3%);
+    box-shadow: 10px 5px 50px #6bdce436
+ }
+  .container-UserInfo .Buttons a{
+    text-decoration: none;
+  }
