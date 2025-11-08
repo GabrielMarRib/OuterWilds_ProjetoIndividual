@@ -1,0 +1,26 @@
+body{
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+    padding: 0;
+    box-sizing: border-box;
+}
+.container-main{
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    display: flex;
+}
+.container-image{
+    display: flex;
+    width: 60%;
+    height: 100%;
+    border: solid rgb(255, 0, 0) 1px;
+    justify-content: start;
+
+}
+.container-image img{
+  
+    
+    
+}
