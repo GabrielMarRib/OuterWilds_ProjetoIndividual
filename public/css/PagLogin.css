@@ -4,6 +4,7 @@ body{
     height: 100vh;
     padding: 0;
     box-sizing: border-box;
+    font-family: "Nunito Sans" Arial, Helvetica, sans-serif;
 }
 .container-main{
     width: 100%;
@@ -15,12 +16,175 @@ body{
     display: flex;
     width: 60%;
     height: 100%;
-    border: solid rgb(255, 0, 0) 1px;
+    /* border: solid rgb(255, 0, 0) 1px; */
     justify-content: start;
-
+    
+   
 }
 .container-image img{
-  
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+.container-body{
+    width: 40%;
+    height: 100%;
+    display: flex;
+    background-color: #060F1E;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+}
+.container-body .Form-Body{
+    /* border: solid #FF7D25; */
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+    margin-top: -30px;
+}
+.container-body .MainText{
+    color: #FFF;
+    font-family: "Nunito Sans";
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin: 0;
+}
+.container-body .MainText .Orange{
+    color: #FF7D25;
+}
+.Form-Body hr{
+    width: 70%;
+    border: 0.1rem dotted grey; 
+    margin-top: 25px;
+    margin-bottom: 60px;
+}
+.Form-Body .SubText{
+    color: #FFF;
+    line-height: normal;
+    font-family: "Nunito Sans";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    margin: 0;
+    margin-left: 5px;
+}
+.container-inputs{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+     width: 75%;
+}
+.subcontainer-input{
+     width: 100%;
+     display: flex;
+     flex-direction: column;
+     gap: 0;
+}
+.subcontainer-input .Input{
+    border-radius: 5px;
+    border: 1px solid #303030;
+    background: #FFF;
+    width: 95%;
+    height: 25px;
+    align-items: center;
+    color: #000000;
+    font-size: 15px;
+    font-family: "Nunito Sans";
+    padding-left: 20px;
+}
+.subcontainer-input .Input:hover{
+    border: 2px #FF7D25 solid;
+}
+.subcontainer-input .Input:focus{
+    border: 2px #FF7D25 solid;
+    outline: 0;
+    box-shadow: 0 0 0 0;
+}
+.HiperText{
+    width: 80%;
+    display: flex;
+    justify-content: end;
+    margin-top: 10px;
+}
+.HiperText a{
+    font-size: 15px;
+    color: #4CBCC3;
+    margin-right: 15px;
+}
+.SubDivCheckBox{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    width: 70%;
+    justify-content: start;
+    margin-left: 10px;
+    align-items: center;
+}
+.SubDivCheckBox p{
+    color: #D8D8D8;
+    font-size: 15px;
+    font-style: normal;
+
+}
+.SubDivCheckBox input[type="checkbox"]{
+    width: 20px;
+    height: 20px;
+    accent-color: #FF7D25; /* Laranja */
+    flex-shrink: 0;
+    border: none;
+    box-shadow: none;
+    outline: none;
+    background-color: #FF7D25;
+}
+.MainButton{
     
+    display: flex;
+    width: 70%;
+    padding: 13px 10px 12px 10px;
+    justify-content: center;
+    align-items: center;
+    gap: 13px;
+    border-radius: 6px;
+    background: #FFD9A8;
+    color: #FFF;
+    font-size: 25px;
+    height: 50px;
+    font-style: normal;
+    font-weight: 800;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+}
+.MainButton:hover{
+    background-color: #FF7D25;
+}
+.LogoInferior{
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    bottom: 0;
+    right: 0;
+    position: fixed;
     
+}
+.LogoInferior img{
+    width: 100px;
+}
+.SubDivCrieConta{
+    color: #D8D8D8;
+    font-size: 15px;
+    font-style: normal;
+
+}
+.SubDivCrieConta .Orange{
+    color: #FFD9A8;
+   
+}
+.SubDivCrieConta .Orange:hover{
+    color: #FF7D25;
 }
