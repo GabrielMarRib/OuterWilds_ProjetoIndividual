@@ -1,0 +1,177 @@
+body{
+    margin: 0;
+    width: 100vw;
+    height: 500vh;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Nunito Sans" Arial, Helvetica, sans-serif;
+    background-color: #060F1E;
+    display: flex;
+    flex-direction: column;
+}
+body::-webkit-scrollbar {
+    /* Esconder a barra de rolagem sem tirar a função dela */
+    width: 0; 
+    height: 0;
+}
+ /* Versão um */
+@keyframes flutuacaoSolta1 {
+  0%   { 
+    transform: translate(0, 0); 
+  }
+  15%  { 
+    transform: translate(-3px, -8px); /* Sobe rápido */
+  }
+  38%  { 
+    transform: translate(5px, 3px);  /* Desce devagar para a direita */
+  }
+  50%  { 
+    transform: translate(8px, -5px); /* Sobe para a direita */
+  }
+  77%  { 
+    transform: translate(-5px, 6px); /* Desce rápido para a esquerda */
+  }
+  100% { 
+    transform: translate(0, 0);      /* Volta ao início */
+  }
+}
+
+
+
+/* NAVBAR */
+.NavBar{
+    width: 100vw;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border: solid #FF2; */
+    animation-name: flutuacaoSolta1;
+    animation-duration: 35s; 
+    animation-timing-function: ease-in-out; 
+    animation-iteration-count: infinite; 
+}
+.NavBar .container-main-Navbar{
+    display: flex;
+    border: solid #FFFF;
+    margin-top: 10px;
+    border-radius: 15px;
+    width: 80%;
+    height: 70px;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+.container-main-Navbar .Imagem img{
+    width: 70px;
+    margin-bottom: -10px;
+}
+/* Options */
+.container-btns{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    /* border: solid #CFF3; */
+    gap: 20px;
+}
+
+
+
+
+.Option-ativo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    cursor: pointer;
+}
+.Option-desativo span{
+    color: #FFFF;
+    font-size: 20px;
+    cursor: pointer;
+}
+.Option-desativo img{
+    width: 20px;
+    display: none;
+}
+.Option-ativo span{
+    color: #4CBCC3;
+    font-size: 25px;
+}
+.Option-ativo img{
+    width: 20px;
+    vertical-align: middle;
+    margin: 0;
+    
+}
+
+
+/* FIM OPTION */
+.container-profile{
+    display: flex;
+    flex-direction: row;
+}
+.container-profile img{
+    width: 25px;
+}
+.container-loginECadastro button{
+    background-color: #241860;
+    border: 0.1rem solid white;
+    box-shadow: 5px 3px 4px 0.1rem #ffffff35;
+    width: 100px;
+    height: 30px;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+}
+
+/* ///////// FIM DA NAVBAR ///////////// */
+
+/* BACKGROUND */
+.container-main{
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    /* border: red solid; */
+}
+.EstrelasBackground{
+    
+   z-index: -1;
+    width: 100%;
+    height: 100%;
+    /* border: solid green; */
+    background-image: url('./../assets/Lancamento/Estrelas.png'); 
+    background-position: 0 0;
+    background-repeat: repeat; 
+    background-size: contain; 
+    
+}
+
+/* ///////// FIM DO BACKGROUND ///////////// */
+
+
+.container-imagem-main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    object-fit: contain;
+}
+.container-imagem-main img{
+    width: 100%;
+    object-fit: contain;
+}
+
+
+.containerHistoria{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+    border: solid red;
+}
+
