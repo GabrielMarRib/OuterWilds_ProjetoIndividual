@@ -1,7 +1,7 @@
 body{
     margin: 0;
     width: 100vw;
-    height: 500vh;
+    
     padding: 0;
     box-sizing: border-box;
     font-family: "Nunito Sans" Arial, Helvetica, sans-serif;
@@ -19,7 +19,7 @@ body{
     left: 0;
     z-index: 0;
     width: 100%;
-    height: 500vh;
+    height: 800vh;
     /* border: solid green; */
     background-image: url('./../assets/Lancamento/Estrelas.png'); 
     background-position: 0 0;
@@ -151,7 +151,9 @@ body::-webkit-scrollbar {
 
 /* ///////// FIM DA NAVBAR ///////////// */
 
-/* BACKGROUND */
+/* ///////// Historia ///////////// */
+
+
 .container-main{
     width: 100%;
     height: 100%;
@@ -162,7 +164,6 @@ body::-webkit-scrollbar {
     z-index: 1;
 }
 
-/* ///////// FIM DO BACKGROUND ///////////// */
 
 
 .container-imagem-main{
@@ -218,3 +219,135 @@ margin-top: -100px;
     margin: 0;
     margin-bottom: 9px;
 }
+
+/* ///////// FIM DA HISTORIA ///////////// */
+
+
+/* ///////// ATLAS COSMICO ///////////// */
+
+
+.container-main-planeta{
+    width: 100%;
+    height: 100%;
+    border: solid red;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.container-main-planeta .subcontainer-title{
+     display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 30px;
+    color: white;
+    justify-content: center;
+    padding: 0;
+}
+ .container-main-planeta .subcontainer-title img{ 
+    width: 10%;
+}
+.container-planetas-main{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    flex-direction: column;
+    /* border: solid white; */
+}
+.container-planetas-main img{
+    margin-top: 10px;
+    width: 55%;
+    border: 01.rem solid white;
+}
+.container-planetas-main hr{
+    width: 50%;
+}
+.container-planetas-main .hr2{
+    width: 40%;
+    margin-top: 50px;
+}
+
+
+
+
+/* CONTAINER MODELO 1 PLANETA */
+.container-planeta-modelo{
+    margin-top: 50px;
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+    /* border: solid black; */
+} 
+.container-planeta-modelo .image{
+    width: 50%;
+    text-align: center;
+    /* border: #241860 solid; */
+}
+.container-planeta-modelo img{
+  width: 50%;
+}
+.containerinfos{
+    /* border: solid white; */
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    
+}
+.containerinfos .subcontainer-title{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 30px;
+    color: white;
+    justify-content: center;
+    padding: 0;
+    font-size: 15px;
+}
+.containerinfos .subcontainer-title img{
+    width: 5%;
+}
+.containerinfos p{
+    color: white;
+    font-size: 20px;
+    margin: 0;
+    margin-bottom: 9px;
+}
+.containerinfos .Texto{
+    padding: 0 7%;
+    margin-top: 10px;
+
+}
+
+.container-planeta-modelo .image-GemosAmpulheta{
+    /* border: #e100ff solid; */
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container-planeta-modelo .image-GemosAmpulheta img{
+    width: 65%;
+}
+/* /////////////FIM MODELO ////////////////// */
+
+.HRPLANETA{
+    width: 30%;
+    color: white;
+    margin-top: 50px;
+}
+.container-supernova{
+    /* border: solid black; */
+    width: 200px;
+    position: absolute;
+    right: 0;
+    margin-top: -130px;
+    
+}
+.container-supernova img{
+    object-fit: cover;
+    width: 100%;
+
+}
+
+
+/* ///////// FIM DA ATLAS COSMICO ///////////// */
