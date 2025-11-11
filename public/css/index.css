@@ -114,6 +114,9 @@
         gap: 10px;
 
  }
+ .Form a{
+  text-decoration: none;
+ }
 
  .HR {
      display: flex;
