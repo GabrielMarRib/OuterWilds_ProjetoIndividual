@@ -8,6 +8,24 @@ body{
     background-color: #060F1E;
     display: flex;
     flex-direction: column;
+    top: 0;
+    left: 0;
+    
+}
+
+.EstrelasBackground{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    width: 100%;
+    height: 500vh;
+    /* border: solid green; */
+    background-image: url('./../assets/Lancamento/Estrelas.png'); 
+    background-position: 0 0;
+    background-repeat: repeat; 
+    background-size: contain; 
+    
 }
 body::-webkit-scrollbar {
     /* Esconder a barra de rolagem sem tirar a função dela */
@@ -20,16 +38,20 @@ body::-webkit-scrollbar {
     transform: translate(0, 0); 
   }
   15%  { 
-    transform: translate(-3px, -8px); /* Sobe rápido */
+    /* Aumentado de -3px para -8px em X, e de -8px para -15px em Y */
+    transform: translate(-8px, -15px); /* Movimento mais forte para cima/esquerda */
   }
   38%  { 
-    transform: translate(5px, 3px);  /* Desce devagar para a direita */
+    /* Aumentado de 5px para 12px em X, e de 3px para 8px em Y */
+    transform: translate(12px, 8px);  /* Movimento grande para baixo/direita */
   }
   50%  { 
-    transform: translate(8px, -5px); /* Sobe para a direita */
+    /* Aumentado de 8px para 15px em X, e de -5px para -10px em Y */
+    transform: translate(15px, -10px); /* Ponto máximo para direita/acima */
   }
   77%  { 
-    transform: translate(-5px, 6px); /* Desce rápido para a esquerda */
+    /* Aumentado de -5px para -10px em X, e de 6px para 12px em Y */
+    transform: translate(-10px, 12px); /* Movimento forte para baixo/esquerda */
   }
   100% { 
     transform: translate(0, 0);      /* Volta ao início */
@@ -40,6 +62,7 @@ body::-webkit-scrollbar {
 
 /* NAVBAR */
 .NavBar{
+    z-index: 10;
     width: 100vw;
     position: fixed;
     display: flex;
@@ -47,7 +70,7 @@ body::-webkit-scrollbar {
     align-items: center;
     /* border: solid #FF2; */
     animation-name: flutuacaoSolta1;
-    animation-duration: 35s; 
+    animation-duration: 30s; 
     animation-timing-function: ease-in-out; 
     animation-iteration-count: infinite; 
 }
@@ -136,18 +159,7 @@ body::-webkit-scrollbar {
     display: flex;
     flex-direction: column;
     /* border: red solid; */
-}
-.EstrelasBackground{
-    
-   z-index: -1;
-    width: 100%;
-    height: 100%;
-    /* border: solid green; */
-    background-image: url('./../assets/Lancamento/Estrelas.png'); 
-    background-position: 0 0;
-    background-repeat: repeat; 
-    background-size: contain; 
-    
+    z-index: 1;
 }
 
 /* ///////// FIM DO BACKGROUND ///////////// */
@@ -158,10 +170,10 @@ body::-webkit-scrollbar {
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 100vh;
     object-fit: contain;
 }
 .container-imagem-main img{
+margin-top: -100px;
     width: 100%;
     object-fit: contain;
 }
@@ -169,9 +181,40 @@ body::-webkit-scrollbar {
 
 .containerHistoria{
     display: flex;
+    flex-direction: row;
+    /* border: solid red; */
+    padding: 5%;
+    align-items: center;
+}
+.containerHistoria .subcontainer-imagem img{
+    width: 600px;
+}
+.containerHistoria .subcontainer-texto{
+    display: flex;
     flex-direction: column;
     width: 100%;
-    height: 100vh;
-    border: solid red;
+    /* border: #4CBCC3 solid; */
+    padding: 3%;
+    padding-top: 1%;
 }
-
+.containerHistoria .subcontainer-texto.imagem{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 30px;
+    color: white;
+    justify-content: center;
+    padding: 0;
+}
+.containerHistoria .subcontainer-texto.imagem img{
+    width: 6%;
+}
+.subcontainer-texto hr{
+    width: 80%;
+}
+.subcontainer-texto p{
+    color: white;
+    font-size: 15px;
+    margin: 0;
+    margin-bottom: 9px;
+}
