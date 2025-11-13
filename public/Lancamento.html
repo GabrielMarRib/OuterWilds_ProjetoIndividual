@@ -7,6 +7,7 @@
     <title>Outer Wilds</title>
     <link rel="stylesheet" href="./css/PagLancamento.css">
     <link rel="shortcut icon" href="assets/Icons/favicon.svg" type="image/x-icon">
+    <script src="js/index.js"></script>
 </head>
 
 <body>
@@ -16,35 +17,42 @@
 
     <nav class="NavBar">
         <div class="container-main-Navbar">
-            <div class="Imagem">
-                <img src="./assets/Lancamento/LogoNavbar.png" alt="">
-            </div>
+            <a href="index.html">
+                <div class="Imagem">
+                    <img src="./assets/Lancamento/LogoNavbar.png" alt="">
+                </div>
+
+            </a>
             <div class="container-btns">
-                <div class="Option-ativo">
-                    <img src="assets/PointerOption.svg" alt="">
+                <div class="Option-desativo" onclick="FnScrollTela('Home')">
+                    <img src="assets/index/PointerOption.svg" alt="">
                     <span>Home</span>
                 </div>
-                <div class="Option-desativo">
-                    <img src="assets/PointerOption.svg" alt="">
-                    <span>Lançamento</span>
+                <div class="Option-desativo" onclick="FnScrollTela('Historia')">
+                    <img src="assets/index/PointerOption.svg" alt="">
+                    <span>Historia</span>
                 </div>
-                <div class="Option-desativo">
-                    <img src="assets/PointerOption.svg" alt="">
+                <div class="Option-desativo" onclick="FnScrollTela('Exploradores')">>
+                    <img src="assets/index/PointerOption.svg" alt="">
+                    <span>Exploradores</span>
+                </div>
+                <div class="Option-desativo" onclick="FnScrollTela('Atlas')">
+                    <img src="assets/index/PointerOption.svg" alt="">
                     <span>Atlas Cósmico</span>
                 </div>
                 <div class="Option-desativo">
-                    <img src="assets/PointerOption.svg" alt="">
-                    <span>Exploradores</span>
-                </div>
-                <div class="Option-desativo">
-                    <img src="assets/PointerOption.svg" alt="">
+                    <img src="assets/index/PointerOption.svg" alt="">
                     <span>Forum</span>
+                </div>
+                <div class="Option-desativo" onclick="FnScrollTela('ME')">>
+                    <img src="assets/index/PointerOption.svg" alt="">
+                    <span>Dev</span>
                 </div>
 
             </div>
-            <div class="container-profile">
+            <!-- <div class="container-profile">
                 <img src="assets/Lancamento/Profile.png" alt="">
-            </div>
+            </div> -->
 
             <div class="container-loginECadastro">
                 <a href="./Cadastro.html">
@@ -66,7 +74,7 @@
         </div>
 
 
-        <div class="containerHistoria">
+        <div class="containerHistoria" id="containerHistoria">
 
             <div class="subcontainer-imagem">
                 <img src="assets/Lancamento/ImgHistoria.png" alt="">
@@ -112,7 +120,70 @@
             </div>
 
         </div>
-        <div class="container-main-planeta">
+
+        
+        <div class="container-main-caracters" id="container-main-caracters">
+
+
+            <div class="container-arrow direita" onclick="FnRolarCarrosel('esquerda')">
+                <img src="assets/Lancamento/Carrosel/ArrowEsquerda.png" alt="">
+            </div>
+
+            <div class="container-card-second">
+                <div class="containerImg">
+                    <img src="assets/Lancamento/Carrosel/Personagens/Riebeck.png" alt="" id="Imagem_secundaria_E">
+                </div>
+                <div class="containerText">
+                    <h1 class="titulo" id="Titulo_secundario_E">Riebeck</h1>
+                    <div class="p">
+                        <p id="Descricao_secundaria_E">
+                            O arqueólogo e tocador de banjo do grupo. Riebeck é um pouco medroso e pode ser encontrado no Vale Incerto (Brittle Hollow), estudando as ruínas Nomai. Apesar do medo de altura e de buracos negros, sua paixão pela história Nomai o mantém firme em suas pesquisas.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container-card">
+                <div class="containerImg">
+                    <img src="./assets/Lancamento/Carrosel/Personagens/ViajanteEU.png" id="Imagem_principal" alt="">
+                </div>
+                <div class="containerText">
+                    <h1 class="titulo" id="Titulo_principal">O Viajante (Você)</h1>
+                    <div class="p">
+                        <p id="Descricao_principal">
+                            O mais novo astronauta da Outer Wilds Ventures. Equipado com um detector de sinal e um tradutor
+                            Nomai, sua missão é explorar o sistema solar. Você é o único que se conecta a uma estátua Nomai
+                            e fica preso no loop temporal, revivendo os últimos 22 minutos antes que o Sol exploda.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container-card-second">
+                <div class="containerImg">
+                    <img src="./assets/Lancamento/Carrosel/Personagens/Chert.png" alt="" id="Imagem_secundaria_D">
+                </div>
+               <div class="containerText">
+                    <h1 class="titulo" id="Titulo_secundario_D">Chert</h1>
+                    <div class="p">
+                        <p id="Descricao_secundaria_D">
+                           Um astrônomo e percussionista (toca bateria) que pode ser encontrado observando as estrelas no Cânion da Lareira (Ember Twin). Chert é muito analítico e é o primeiro a notar que o Sol está morrendo mais rápido do que o esperado, ficando visivelmente mais ansioso a cada loop.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container-arrow esquerda" onclick="FnRolarCarrosel('direita')">
+                <img src="assets/Lancamento/Carrosel/ArrowDireita.png" alt="">
+            </div>
+
+        </div>
+
+
+
+        <br><br><br><br><br><br>
+
+        <div class="container-main-planeta" id="container-main-planeta">
             <div class="subcontainer-title">
                 <img src="assets/Lancamento/ArvoreLaranja.png" alt="">
                 <h1>ATLAS COSMICO</h1>
@@ -281,10 +352,11 @@
                             Gravidade: 2.5x
                         </p>
                         <p>
-                            Caracteristicas: Planeta multidimensional, hostil e aterroziante  
+                            Caracteristicas: Planeta multidimensional, hostil e aterroziante
                         </p>
                         <p>
-                            Descrução:O planeta mais aterrorizante do sistema. O Bruma Sombria é, na verdade, uma semente de uma
+                            Descrução:O planeta mais aterrorizante do sistema. O Abrolho Sombria é, na verdade, uma
+                            semente de uma
                             planta interdimensional que cresceu descontroladamente, quebrando o planeta de gelo original
                             onde ela pousou. Seu interior é um labirinto confuso de neblina, vinhas e "nós"
                             dimensionais, onde o espaço é distorcido. É o lar dos temíveis Lúcios (Anglerfish),
@@ -303,49 +375,59 @@
                 <div class="containerinfos">
                     <div class="subcontainer-title">
                         <img src="assets/Lancamento/ArvoreLaranja.png" alt="">
-                        <h1>AQUI</h1>
+                        <h1>Recanto Lenhoso</h1>
                         <img src="assets/Lancamento/ArvoreLaranja.png" alt="">
                     </div>
                     <div class="Texto">
                         <p>
-                            Gravidade: 2.5x
-                            Vale Incerto é o terceiro de seis planetas do sistema solar dos Selvagens Exteriores.
-                            Adequado ao seu nome, o planeta consiste em uma crosta quebradiça e rochosa, circundando um
-                            interior oco com um grande Buraco Negro servindo como núcleo do planeta. Os bombardeios
-                            regulares da lua do planeta fazem com que fragmentos da crosta frágil se quebrem ao longo do
-                            loop, caindo no núcleo do buraco negro.
-                            Caracteristica: Tem um buraco negro no meio
+                            Gravidade: 1x
                         </p>
-
+                        <p>
+                            Caracateristicas: Planeta cheio de vida, verde e com um clima habitavel
+                        </p>
+                        <p>
+                            Descrição:Este é o planeta natal dos Herdianos (a espécie do jogador). É um mundo temperado,
+                            coberto
+                            por florestas de pinheiros, rios e gêiseres. É o local mais "normal" e seguro do sistema,
+                            servindo como ponto de partida para a aventura. O Recanto Lenhoso abriga a vila dos
+                            Herdianos, o observatório que rastreia o Olho do Universo e o museu que contextualiza a
+                            história. Sua lua, a Sonda, é usada para mineração e testes de lançamento do programa
+                            espacial.
+                        </p>
                     </div>
                 </div>
                 <div class="image">
-                    <img src="assets/Lancamento/Planetas/ValeIncerto.png" alt="">
+                    <img src="assets/Lancamento/Planetas/RecantoLenhoso.png" alt="">
                 </div>
 
             </div>
             <hr class="HRPLANETA">
             <div class="container-planeta-modelo">
 
-                <div class="image">
-                    <img src="assets/Lancamento/Planetas/ValeIncerto.png" alt="">
+                <div class="image-Xereta">
+                    <img src="assets/Lancamento/Planetas/Oxereta.png" alt="">
                 </div>
 
                 <div class="containerinfos">
                     <div class="subcontainer-title">
                         <img src="assets/Lancamento/ArvoreLaranja.png" alt="">
-                        <h1>AQUI</h1>
+                        <h1>O Xereta</h1>
                         <img src="assets/Lancamento/ArvoreLaranja.png" alt="">
                     </div>
                     <div class="Texto">
                         <p>
-                            Gravidade: 2.5x
-                            Vale Incerto é o terceiro de seis planetas do sistema solar dos Selvagens Exteriores.
-                            Adequado ao seu nome, o planeta consiste em uma crosta quebradiça e rochosa, circundando um
-                            interior oco com um grande Buraco Negro servindo como núcleo do planeta. Os bombardeios
-                            regulares da lua do planeta fazem com que fragmentos da crosta frágil se quebrem ao longo do
-                            loop, caindo no núcleo do buraco negro.
-                            Caracteristica: Tem um buraco negro no meio
+                            Gravidade: 0.5x
+                        </p>
+                        <p>
+                            Descrição: Um meteoro congelado enfestado com uma praga hostil
+                        </p>
+                        <p>
+                            Um cometa elíptico coberto de gelo que viaja do sistema solar exterior para muito perto do
+                            Sol. O Xereta parece ser um pedaço de gelo inofensivo, mas rachaduras em sua superfície
+                            revelam um interior pressurizado. Os Nomai investigaram este cometa e descobriram algo
+                            terrível em seu núcleo: um centro preenchido com "Matéria Fantasma" (Ghost Matter)
+                            pressurizada, uma substância letal que matou quase todos os Nomai instantaneamente quando o
+                            cometa se rompeu.
                         </p>
 
                     </div>
@@ -359,29 +441,69 @@
                 <div class="containerinfos">
                     <div class="subcontainer-title">
                         <img src="assets/Lancamento/ArvoreLaranja.png" alt="">
-                        <h1>AQUI</h1>
+                        <h1>Lua Quantica</h1>
                         <img src="assets/Lancamento/ArvoreLaranja.png" alt="">
                     </div>
                     <div class="Texto">
                         <p>
-                            Gravidade: 2.5x
-                            Vale Incerto é o terceiro de seis planetas do sistema solar dos Selvagens Exteriores.
-                            Adequado ao seu nome, o planeta consiste em uma crosta quebradiça e rochosa, circundando um
-                            interior oco com um grande Buraco Negro servindo como núcleo do planeta. Os bombardeios
-                            regulares da lua do planeta fazem com que fragmentos da crosta frágil se quebrem ao longo do
-                            loop, caindo no núcleo do buraco negro.
-                            Caracteristica: Tem um buraco negro no meio
+                            Gravidade: 1.5x
+                        </p>
+                        <p>
+                            Descrição: Impossivel de chegar? Lua fria e quantica? Qual planeta ela orbita?
+                        </p>
+                        <p>
+                            Descrição: Um objeto misterioso que desafia as leis da física clássica. A Lua Quântica não
+                            possui uma
+                            localização fixa; ela orbita um dos seis locais principais (incluindo o Olho), mas só
+                            "existe" naquele local enquanto não está sendo observada. Para pousar nela, o jogador deve
+                            usar as regras quânticas, como tirar uma foto dela para "travar" sua posição. Sua superfície
+                            muda drasticamente dependendo de qual planeta ela está orbitando, e ela é a chave para
+                            encontrar o "Sexto Local".
                         </p>
 
                     </div>
                 </div>
                 <div class="image">
-                    <img src="assets/Lancamento/Planetas/ValeIncerto.png" alt="">
+                    <img src="assets/Lancamento/Planetas/LuaQuantica.png" alt="">
                 </div>
 
             </div>
             <hr class="HRPLANETA">
 
+            <div class="container-planeta-modelo">
+
+                <div class="image-olho-universo">
+                    <img src="assets/Lancamento/Planetas/OlhoDoUniverso.png" alt="">
+                </div>
+                <div class="containerinfos">
+                    <div class="subcontainer-title">
+                        <img src="assets/Lancamento/ArvoreLaranja.png" alt="">
+                        <h1>Olho do universo</h1>
+                        <img src="assets/Lancamento/ArvoreLaranja.png" alt="">
+                    </div>
+                    <div class="Texto">
+                        <p>
+                            Gravidade: ????
+                        </p>
+                        <p>
+                            Descrição: ???????
+                        </p>
+                        <p>
+                            O objetivo final da jornada. O Olho é um objeto massivo e antigo, mais velho que o próprio
+                            universo, que emite um sinal misterioso detectado pelos Nomai (e posteriormente pelo
+                            observatório dos Herdianos). Ele é a fonte de toda a flutuação quântica no sistema solar. Os
+                            Nomai dedicaram toda a sua cultura à busca por este Olho, acreditando que ele detém a
+                            resposta para os segredos fundamentais da existência. Chegar até ele é o grande desafio do
+                            jogo.
+                        </p>
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="container-HR">
+                <hr>
+            </div>
 
 
 
@@ -396,7 +518,22 @@
 
 
         </div>
-    </div>
-</body>
 
+<footer >
+ <div class="container-main-footer" id="container-main-footer">
+
+
+    <div class="image">
+        <img src="assets/Lancamento/GabrielMarques.png" alt="">
+    </div>
+    <h1>BY GABRIEL MARQUES RIBEIRO</h1>
+ </div>
+</footer>
+<div class="footer-copyright">
+    <p>&copy; 2025 Gabriel. Todos os direitos reservados.</p>
+</div>
+
+
+
+</body>
 </html>

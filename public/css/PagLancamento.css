@@ -19,7 +19,7 @@ body{
     left: 0;
     z-index: 0;
     width: 100%;
-    height: 800vh;
+    height: 1100vh;
     /* border: solid green; */
     background-image: url('./../assets/Lancamento/Estrelas.png'); 
     background-position: 0 0;
@@ -114,9 +114,14 @@ body::-webkit-scrollbar {
     font-size: 20px;
     cursor: pointer;
 }
+.Option-desativo:hover img{
+    opacity: 100%;
+}
+
+
 .Option-desativo img{
     width: 20px;
-    display: none;
+    opacity: 0;
 }
 .Option-ativo span{
     color: #4CBCC3;
@@ -148,6 +153,11 @@ body::-webkit-scrollbar {
     color: white;
     cursor: pointer;
 }
+
+
+
+
+
 
 /* ///////// FIM DA NAVBAR ///////////// */
 
@@ -229,7 +239,7 @@ margin-top: -100px;
 .container-main-planeta{
     width: 100%;
     height: 100%;
-    border: solid red;
+    /* border: solid red; */
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -319,7 +329,6 @@ margin-top: -100px;
 }
 
 .container-planeta-modelo .image-GemosAmpulheta{
-    /* border: #e100ff solid; */
     width: 50%;
     display: flex;
     justify-content: center;
@@ -328,6 +337,28 @@ margin-top: -100px;
 .container-planeta-modelo .image-GemosAmpulheta img{
     width: 65%;
 }
+.container-planeta-modelo .image-Xereta{
+    /* border: #e100ff solid; */
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container-planeta-modelo .image-Xereta img{
+    width: 120%;
+}
+
+.image-olho-universo{
+    /* border: #e100ff solid; */
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.image-olho-universo img{
+    width: 60%;
+}
+
 /* /////////////FIM MODELO ////////////////// */
 
 .HRPLANETA{
@@ -349,5 +380,178 @@ margin-top: -100px;
 
 }
 
-
+.container-HR{
+    width: 100%;
+}
+.container-HR hr{
+    width: 70%;
+    color: white;
+}
 /* ///////// FIM DA ATLAS COSMICO ///////////// */
+
+
+
+.container-main-caracters{
+    /* border: solid white; */
+    width: 100%;
+    height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+}
+.container-main-caracters .container-card{
+    display: flex;
+    /* border: solid #4CBCC3; */
+    width: 350px;
+    height: 100%;
+    flex-direction: column;
+    border-radius: 15px;
+    overflow: hidden;
+}
+.container-main-caracters .container-card-second{
+     display: flex;
+    /* border: solid #01565c; */
+    width: 250px;
+    height: 80%;
+    flex-direction: column;
+    border-radius: 15px;
+    overflow: hidden;
+}
+.container-arrow{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* border: solid red; */
+    width: 10%;
+    height: 30%;
+    cursor: pointer;
+}
+.direita{
+
+    display: flex;
+    justify-content: start;
+}
+.esquerda{
+    display: flex;
+    justify-content: end;
+}
+.direita img{
+    width: 100%;
+}
+.esquerda img{
+    width: 100%;
+}
+
+
+/* CARDE PRINMCIPAL */
+.container-card .containerImg{
+    /* background-color: antiquewhite; */
+    width: 100%;
+    height: 60%;
+}
+.container-card .containerImg img{
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+.container-card .containerText{
+    display: flex;
+    background-color: #332c59;
+    height: 40%;
+    width: 100%;
+    flex-direction: column;
+}
+.container-card .containerText p{
+    width: 100%;
+    font-size: 14px;
+    color: beige;
+    display: flex;
+    text-align: center;
+}
+.container-card .containerText .titulo{
+    font-size: 20px;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    color: white;
+    font-weight: 800;
+}
+
+/* CARDE SECUNDARIO */
+.container-card-second .containerImg{
+    background-color: antiquewhite;
+    width: 100%;
+    height: 60%;
+}
+.container-card-second .containerImg img{
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+.container-card-second .containerText{
+    display: flex;
+    background-color: #332c59;
+    height: 40%;
+    width: 100%;
+    flex-direction: column;
+}
+.container-card-second .containerText p{
+    width: 100%;
+    font-size: 10px;
+    color: beige;
+    display: flex;
+    text-align: center;
+}
+.container-card-second .containerText .titulo{
+    font-size: 18px;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    color: white;
+    font-weight: 800;
+}
+
+/* ///////////////////////FOOTER ///////////*/
+
+
+footer {
+    /* background-color: #000000;  */
+    color: #f4f4f4; 
+    font-family: sans-serif;
+    margin-top: 50px;
+    width: 100%;
+  }
+
+  /* --- Barra de Copyright --- */
+  .footer-copyright {
+    bottom: 0;
+      width: 100%;
+      padding: 20px 0 0 0;
+      border-top: 1px solid #ffffff; /* Linha divisória */
+      font-size: 0.85rem;
+      text-align: center;
+      color: #ffffff;
+      display: flex;
+      justify-content: center;
+      /* background-color: #000000; */
+  }
+  .container-main-footer{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .container-main-footer .image{
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    
+  }
+  .container-main-footer .image img{
+    background-color: white;
+    border-radius: 100%;
+    width: 50%;
+  }
