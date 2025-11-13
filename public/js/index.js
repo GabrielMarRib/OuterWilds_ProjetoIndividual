@@ -84,7 +84,7 @@ function FnRolarCarrosel(lado) {
     var CardMeio_Descricao = document.getElementById('Descricao_principal')
     var CardMeio_Titulo = document.getElementById('Titulo_principal')
 
-    var CardDireita_Img = document.getElementById('Imagem_secunaria_D')
+    var CardDireita_Img = document.getElementById('Imagem_secundaria_D')
     var CardDireita_Titulo = document.getElementById('Titulo_secundario_D')
     var CardDireita_Descricao = document.getElementById('Descricao_secundaria_D')
 
