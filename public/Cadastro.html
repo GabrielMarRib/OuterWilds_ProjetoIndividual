@@ -6,10 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/PagCadastro.css">
     <link rel="shortcut icon" href="assets/Icons/favicon.svg" type="image/x-icon">
+    <script src="js/cadastro.js"></script>
+
     <title>Outer Wilds</title>
 </head>
 
-<body>
+<body onload="listar()">
 
 
     <div class="container-main">
@@ -17,7 +19,6 @@
          <div class="container-body">
 
              <div class="Form-Body">
-                 
                  <p class="MainText"><span class="MainText Orange">Cadastre-se</span> no site </p>
             <p class="subText">E particie da melhor comunidade de Outer Wilds </p>
             
@@ -25,23 +26,23 @@
             <div class="container-inputs">
                 <div class="subcontainer-input">
                     <p class="SubText">Nome de usuario</p>
-                    <input type="text" id="" class="Input" placeholder="Gabriel Marques">
+                    <input type="text" id="Input_UserName" class="Input" placeholder="Gabriel Marques">
                 </div>
                 
                 <div class="subcontainer-input">
                     <p class="SubText">Email</p>
-                    <input type="text" id="" class="Input" placeholder="Email@abc.com">
+                    <input type="text" id="Input_UserEmail" class="Input" placeholder="Email@abc.com">
                 </div>
                 
                 
                 <div class="subcontainer-input">
                     <p class="SubText">Senha</p>
-                    <input type="password" id="" class="Input" placeholder="***********">
+                    <input type="password" id="Input_UserSenha" class="Input" placeholder="***********">
                 </div>
                 
                 <div class="subcontainer-input">
                     <p class="SubText">Confirmar senha</p>
-                    <input type="password" id="" class="Input" placeholder="***********">
+                    <input type="password" id="Input_UserConfirmarSenha" class="Input" placeholder="***********">
                 </div>
                 
             </div>
@@ -49,11 +50,11 @@
             
             
             <div class="SubDivCheckBox">
-                <input type="checkbox" name="" id="">
+                <input type="checkbox" name="" id="Input_Termos">
                 <p>Aceito os termos & condições</p>
             </div>
-            
-            <button class="MainButton">Cadastrar</button>
+           
+            <button class="MainButton" onclick="FnCadastrar()" >Cadastrar</button>
             <p class="SubDivCrieConta">Já tem uma conta? <a href="Login.html" class="SubDivCrieConta Orange">Logar!</a></p>
             </div>
             
@@ -67,6 +68,15 @@
             
             <div class="container-image">
                 <img src="./assets/Cadastro/image copy.png" alt="">
+            </div>
+
+
+            <div class="container-alerta" id="IDcontaineralerta">
+                <div>
+                    <img src="assets/Cadastro/IconAlerta.png" alt="">
+                </div>
+                <hr>
+                <p id="mensagem_erro" >Usuario já cadastrado</p>
             </div>
 
         </div>
