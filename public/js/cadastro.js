@@ -38,9 +38,11 @@ function FnCadastrar(){
     if (UserName == "" || userEmail == "" || UserSenha == "" || UserConfirmaSenha == ""){
       Alerta("Algum dos campos não foi preenchido!", "#b09000");  
       return false;
-    } else {
-      IDcontaineralerta.style.opacity = "0";
     }
+    if (UserName.length < 3){
+         Alerta("Nome muito pequeno", "#b09000");  
+    }
+     
 
 
      
@@ -64,25 +66,25 @@ function FnCadastrar(){
         nomeServer: UserName,
         emailServer: userEmail,
         senhaServer: UserSenha
-      }),
+      })
     })
       .then(function (resposta) {
         console.log("resposta: ", resposta);
-
         if (resposta.ok) {
-             Alerta("Cadastro realizado com sucesso! Redirecionando para tela de Login...", "green");  
+             Alerta("Cadastro realizado com sucesso!", "green");  
 
           setTimeout(() => {
-            window.location = "./login.html";
+            window.location = "./Login.html";
           }, "2000");
 
         } else {
+          
           throw "Houve um erro ao tentar realizar o cadastro!";
         }
       })
       .catch(function (resposta) {
         console.log(`#ERRO: ${resposta}`);
-        finalizarAguardar();
+        
       });
 
     return false;
@@ -116,3 +118,16 @@ function FnCadastrar(){
   
 
 
+  function FnEsconderSenha(Btn, inputsenha){
+        var imgolho = document.getElementById(Btn)
+        var Input = document.getElementById(inputsenha)
+        if( imgolho.style.transform == 'scaleX(-1)'){
+            imgolho.style.opacity = '50%'
+            imgolho.style.transform = 'scaleX(1)'
+            Input.type = 'text'
+        }else{
+             Input.type = 'password'
+             imgolho.style.transform = 'scaleX(-1)'
+             imgolho.style.opacity = '100%'
+        }
+    }

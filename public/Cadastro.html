@@ -31,17 +31,27 @@
                 
                 <div class="subcontainer-input">
                     <p class="SubText">Email</p>
-                    <input type="text" id="Input_UserEmail" class="Input" placeholder="Email@abc.com">
+                    <input type="email" id="Input_UserEmail" class="Input" placeholder="Email@abc.com">
                 </div>
                 
                 
                 <div class="subcontainer-input">
-                    <p class="SubText">Senha</p>
+                      <div class="container-textoEbtnocultar">
+                          <p class="SubText">Senha</p>
+                          <div id="btnocultar_senha"  onclick='FnEsconderSenha("ImgOcultarSenha", "Input_UserSenha")'>
+                              <img src="assets/eyes.png" alt="" id="ImgOcultarSenha" >
+                            </div>
+                        </div>
                     <input type="password" id="Input_UserSenha" class="Input" placeholder="***********">
                 </div>
                 
                 <div class="subcontainer-input">
-                    <p class="SubText">Confirmar senha</p>
+                    <div class="container-textoEbtnocultar">
+                          <p class="SubText">Confirmar senha</p>
+                          <div id="btnocultar_senha"  onclick='FnEsconderSenha("ImgOcultarConfiSenha", "Input_UserConfirmarSenha")'>
+                              <img src="assets/eyes.png" alt="" id="ImgOcultarConfiSenha" >
+                            </div>
+                        </div>
                     <input type="password" id="Input_UserConfirmarSenha" class="Input" placeholder="***********">
                 </div>
                 

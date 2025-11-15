@@ -101,10 +101,10 @@ body{
     border: 1px solid #303030;
     background: #FFF;
     width: 95%;
-    height: 25px;
+    height: 35px;
     align-items: center;
     color: #000000;
-    font-size: 15px;
+    font-size: 18px;
     font-family: "Nunito Sans";
     padding-left: 20px;
 }
@@ -225,4 +225,34 @@ body{
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
 
+}
+
+
+
+.container-textoEbtnocultar{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    /* border: solid white; */
+    align-items: end;
+    z-index: 0;
+}
+.container-textoEbtnocultar img{
+    
+    cursor: pointer;
+    object-fit: fill;
+    align-items: baseline;
+    width: 75%;
+    z-index: 10;
+    opacity: 100%;
+     transform: scaleX(-1);
+     transition: transform ease-in-out 250ms;
+     position: relative;
+     right: 0;
+}
+#btnocultar_senha{
+    width: 10%;
+    height: 100%;
+    display: flex;
+  
 }

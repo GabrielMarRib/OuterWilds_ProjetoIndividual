@@ -90,10 +90,10 @@ body{
     border: 1px solid #303030;
     background: #FFF;
     width: 95%;
-    height: 25px;
+      height: 35px;
     align-items: center;
     color: #000000;
-    font-size: 15px;
+    font-size: 18px;
     font-family: "Nunito Sans";
     padding-left: 20px;
 }
@@ -187,4 +187,72 @@ body{
 }
 .SubDivCrieConta .Orange:hover{
     color: #FF7D25;
+}
+.container-alerta{
+    position: fixed;
+    border: solid #D8D8D8;
+    width: 340px;
+    height: 120px;
+    display: flex;
+    right: 10px;
+    bottom: 10px;
+    border-radius: 15px;
+    /* background-color: #FF7D25; */
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    opacity: 0;
+    transition: opacity ease-in-out 1s;
+}
+.container-alerta div{
+    /* border: solid #FF7D25; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.container-alerta img{
+    width: 20%;
+    margin: 0;
+}
+.container-alerta hr{
+    color: black;
+    width: 80%;
+    margin-top: -5px
+}
+.container-alerta p{
+    color: rgb(0, 0, 0);
+    font-size:20px;
+    
+    text-align: center;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+
+}
+.container-textoEbtnocultar{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    /* border: solid white; */
+    align-items: end;
+    z-index: 0;
+}
+.container-textoEbtnocultar img{
+    
+    cursor: pointer;
+    object-fit: fill;
+    align-items: baseline;
+    width: 75%;
+    z-index: 10;
+    opacity: 100%;
+     transform: scaleX(-1);
+     transition: transform ease-in-out 250ms;
+     position: relative;
+     right: 0;
+}
+#btnocultar_senha{
+    width: 10%;
+    height: 100%;
+    display: flex;
+  
 }

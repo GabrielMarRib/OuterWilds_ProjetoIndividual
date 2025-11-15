@@ -6,6 +6,7 @@
     <title>Outer Wilds</title>
     <link rel="stylesheet" href="./css/PagLogin.css">
     <link rel="shortcut icon" href="assets/Icons/favicon.svg" type="image/x-icon">
+    <script src="js/login.js"></script>
 </head>
 
 <body>
@@ -26,23 +27,28 @@
                 <div class="container-inputs">
                     <div class="subcontainer-input">
                         <p class="SubText">Email</p>
-                        <input type="text" id="" class="Input" placeholder="mail@abc.com">
+                        <input type="email" id="input_email" class="Input" placeholder="mail@abc.com">
                     </div>
                     
                     <div class="subcontainer-input">
-                        <p class="SubText">Senha</p>
-                        <input type="password" id="" class="Input" placeholder="***********">
+                        <div class="container-textoEbtnocultar">
+                            <p class="SubText">Senha</p>
+                            <div id="btnocultar_senha"  onclick='FnEsconderSenha("ImgOcultarSenha", "input_senha")'>
+                                <img src="assets/eyes.png" alt="" id="ImgOcultarSenha" >
+                            </div>
+                        </div>
+                        <input type="password" id="input_senha" class="Input" placeholder="***********">
                     </div>
                 </div>
 
                 <div class="HiperText"><a href="" >Esqueceu a senha?</a></div>
 
                 <div class="SubDivCheckBox">
-                    <input type="checkbox" name="" id="">
+                    <input type="checkbox" name="" id="Input_checkbox">
                     <p>Lembre de mim</p>
                 </div>
                 
-                <button class="MainButton">Login</button>
+                <button class="MainButton" onclick="entrar()">Login</button>
                 <p class="SubDivCrieConta">Não tem conta ainda? <a href="Cadastro.html" class="SubDivCrieConta Orange">Crie uma conta!</a></p>
             </div>
             <div class="LogoInferior">
@@ -53,6 +59,17 @@
 
             
         </div>
+
+
+
+            <div class="container-alerta" id="IDcontaineralerta">
+                <div>
+                    <img src="assets/Cadastro/IconAlerta.png" alt="">
+                </div>
+                <hr>
+                <p id="mensagem_erro2">Usuario já cadastrado</p>
+            </div>
+
 
     </div>
 
