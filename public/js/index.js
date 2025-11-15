@@ -30,10 +30,22 @@ const personagens = [
         imagem: './assets/Lancamento/Carrosel/Personagens/Nomai.png'
     }
 ]
-document.addEventListener("DOMContentLoaded", function () {
-
-
-
+document.addEventListener("DOMContentLoaded", function () { 
+    //sessionStorage.EMAIL_USUARIO = json.email;
+    //sessionStorage.NOME_USUARIO = json.nome;
+    //sessionStorage.ID_USUARIO = json.idusuario;
+    var NomeUsuario = sessionStorage.getItem('NOME_USUARIO');
+    var EmailUsuario = sessionStorage.getItem('EMAIL_USUARIO');
+    console.log(NomeUsuario + "/" + EmailUsuario)
+    if(NomeUsuario && EmailUsuario){
+        IdProfileLogado.style.display = 'flex'
+        IdProfileDesLogado.style.display = 'none'
+        UserName.innerHTML = NomeUsuario
+    }else{
+        console.log("Teste")
+        IdProfileDesLogado.style.display = 'flex'
+          IdProfileLogado.style.display = 'none'
+    }
 
 });
 function FnScrollTela(Botao) {

@@ -36,8 +36,7 @@ function listar() {
 
 function buscarUsuarioPorEmail(UsuarioID){
   
-      var instrucaoSql = `SELECT id, nome, email FROM usuario WHERE email = '${UsuarioID}'`;
-
+      var instrucaoSql = `SELECT idusuario, nome, email FROM usuario WHERE email = '${UsuarioID}'`;
       console.log("Executando a instrução SQL: \n" + instrucaoSql);
       return database.executar(instrucaoSql);
 }

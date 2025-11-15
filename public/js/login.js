@@ -1,6 +1,9 @@
 const { text } = require("express");
 
 function Alerta(Msg, Cor){
+    if(Msg == ''){
+        return
+    }
     Opacidade = IDcontaineralerta.style.opacity
     if(Opacidade == 0){
         IDcontaineralerta.style.opacity = "100";

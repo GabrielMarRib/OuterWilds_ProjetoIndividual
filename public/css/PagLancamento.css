@@ -139,6 +139,16 @@ body::-webkit-scrollbar {
 .container-profile{
     display: flex;
     flex-direction: row;
+    /* border: solid white; */
+    align-items: center;
+    gap: 10px   ;
+    height: 100%;
+}
+#UserName{
+    color: white;
+    font-size: 30px;
+ /* border: solid white; */
+flex-direction: row;
 }
 .container-profile img{
     width: 25px;
