@@ -1,0 +1,251 @@
+body::-webkit-scrollbar {
+    /* Esconder a barra de rolagem sem tirar a função dela */
+    width: 0; 
+    height: 0;
+}
+body{
+    margin: 0;
+    width: 100vw;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Nunito Sans" Arial, Helvetica, sans-serif;
+    background-color: #060F1E;
+    display: flex;
+    flex-direction: column;
+    top: 0;
+    left: 0;
+}
+
+
+
+
+
+/* NAVBAR */
+.NavBar{
+    z-index: 10;
+    width: 30vw;
+    height: 100vh;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border: solid #FF2; */
+    
+}
+.NavBar .container-main-Navbar{
+    border: solid #FFFF;
+    border-radius: 15px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    width: 30vw;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.container-main-Navbar .Imagem{
+    width: 30vw;
+    display: flex;
+    justify-content: center;
+    /* border: #4CBCC3 solid; */
+
+}
+
+.container-main-Navbar .Imagem img{
+    margin-bottom: -10px;
+    /* border: #FF2 solid; */
+}
+/* Options */
+.container-btns{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* border: solid #CFF3; */
+    gap: 25px;
+}
+
+.Option-desativo {
+    width: 80%;
+    border: solid white;
+    border-radius: 6px;
+    text-align: center;
+    height: 35px;
+    align-items: center;
+
+}
+
+
+.Option-desativo span{
+    color: #FFFF;
+    font-size: 30px;
+    cursor: pointer;
+   
+
+}
+.Option-desativo:hover img{
+    opacity: 100%;
+}
+
+
+.Option-desativo img{
+    width: 20px;
+    opacity: 0;
+}
+.Option-ativo span{
+    color: #4CBCC3;
+    font-size: 25px;
+}
+.Option-ativo img{
+    width: 20px;
+    vertical-align: middle;
+    margin: 0;
+    
+}
+
+
+/* FIM OPTION */
+.container-profile{
+    display: flex;
+    flex-direction: row;
+    /* border: solid rgb(255, 0, 0); */
+    margin-top: 20px;
+    align-items: center;
+    gap: 10px   ;
+    width: 80%;
+    justify-content: space-around;
+    align-items: center;
+    align-self: center;
+}
+
+#UserName{
+    color: white;
+    font-size: 30px;
+ /* border: solid white; */
+flex-direction: row;
+}
+#IconProfile{
+    width: 10%;
+}
+#IconLogOut{
+    width: 13%;
+}
+
+.container-loginECadastro button{
+    background-color: #241860;
+    border: 0.1rem solid white;
+    box-shadow: 5px 3px 4px 0.1rem #ffffff35;
+    width: 100px;
+    height: 30px;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+}
+
+
+
+/* //////////////// FIM DA NAV BAR //////////////////////// */
+
+
+
+/* ////////////////// DASHBOARD ////////////////////// */
+
+
+
+.container-dashboard{
+    /* border: solid red; */
+    width: 70%;
+    height: 100%;
+    align-self: flex-end;
+}
+.container-dashboard .Body{
+    width: 100%;
+    /* border: solid #ff0000; */
+    display: flex;
+    height: 80vh;
+    flex-direction: column;
+}
+.container-dashboard .header {
+    display: flex;
+    color: white;
+    /* border: solid #4CBCC3; */
+    height: 100px;
+    padding: 15px;
+    gap: 15px;
+}
+
+.container-KPI{
+    flex: 1;
+    display: flex;
+    border: #f2f4fb solid;
+    height: 100%;
+    border-radius: 15px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.container-KPI p{
+    color: #FF7D25;
+    font-size: 21px;
+    margin: 0;
+    font-weight: 800;
+}
+.container-KPI h1{
+    font-size: 15px;
+    font-weight: 500;
+}
+
+
+/* GRAFICOS */
+#MainGraficoLinha{
+    
+    /* border: solid pink; */
+    background-color: white;
+    border-radius: 15px;
+    width: 100%;
+}
+.container-graficoUm{
+    width: 100%;
+    height: 50%;
+    /* border: blue solid; */
+    object-fit: fill;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container-graficoUm div{
+    object-fit: fill;
+    /* border: solid rgb(255, 0, 0); */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 90%;
+    
+    
+}
+.container-GraficoDoisETres{
+    width: 100%;
+    height: 100%;
+    /* border: solid #4CBCC3; */
+    display: flex;
+    flex-direction: row;
+}
+.container-graficobarras{
+    width: 50%;
+    height: 100%;
+    /* border: solid red; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container-graficobarras div{
+    background-color: white;
+    width: 90%;
+    height: 90%;
+    border-radius: 10px;
+}
+.container-graficoDonuts{
+    width: 50%;
+    height: 100%;
+    /* border: solid rgb(238, 0, 255); */
+    background-color: rgba(255, 255, 255, 0);
+}

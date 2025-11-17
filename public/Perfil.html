@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/PagCadastro.css">
+    <link rel="shortcut icon" href="assets/Icons/favicon.svg" type="image/x-icon">
+    <link rel="stylesheet" href="css/PagPerfil.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/perfil.js" type="module"></script>
+
+    <title>Outer Wilds</title>
+</head>
+<body>
+    
+    <nav class="NavBar">
+        <div class="container-main-Navbar">
+            <div class="Imagem">
+                    <a href="index.html">
+                    <img src="./assets/Lancamento/LogoNavbar.png" alt="">
+                </a>
+            </div>
+
+            <div class="container-btns">
+                <div class="Option-desativo" onclick="FnScrollTela('Home')">
+                    <img src="assets/index/PointerOption.svg" alt="">
+                    <span>Home</span>
+                </div>
+                <div class="Option-desativo" onclick="FnScrollTela('Historia')">
+                    <img src="assets/index/PointerOption.svg" alt="">
+                    <span>Historia</span>
+                </div>
+                <div class="Option-desativo" onclick="FnScrollTela('Exploradores')">>
+                    <img src="assets/index/PointerOption.svg" alt="">
+                    <span>Exploradores</span>
+                </div>
+                <div class="Option-desativo" onclick="FnScrollTela('Atlas')">
+                    <img src="assets/index/PointerOption.svg" alt="">
+                    <span>Atlas Cósmico</span>
+                </div>
+                <div class="Option-desativo">
+                    <img src="assets/index/PointerOption.svg" alt="">
+                    <span>Forum</span>
+                </div>
+                <div class="Option-desativo" onclick="FnScrollTela('ME')">>
+                    <img src="assets/index/PointerOption.svg" alt="">
+                    <span>Dev</span>
+                </div>
+
+            </div>
+            
+                <div class="container-profile" id="IdProfileLogado">
+                    <img src="assets/Lancamento/Profile.png" id="IconProfile" alt="">
+                    <p id="UserName"></p>
+                    <img src="assets/Perfil/exit.png" onclick="FnDeslogar()" id="IconLogOut" alt="">
+                </div>
+            
+
+            
+
+        </div>
+    </nav>
+
+
+    <div class="container-dashboard">
+
+
+            <!-- DASHBOARD -->
+
+
+            <div class="header">
+                
+
+                <div class="container-KPI">
+                    <h1>-- Media de curtida-- </h1>
+                    <b>
+                        <p id="KPIMediaCurtidas">Carregando...</p>
+                    </b>
+                </div>
+
+                <div class="container-KPI">
+                    <h1>-- Maior quantidade de curtidas --</h1>
+                    <b>
+                        <p id="KPIPostagemMaisCurtida">Carregando...</p>
+                    </b>
+                </div>
+
+                <div class="container-KPI">
+                    <h1>-- Total Postagem --</h1>
+                    <b>
+                        <p id="KPITotalPostagem">Carregando...</p>
+                    </b>
+                </div>
+
+                <div class="container-KPI">
+                    <h1>-- Total de curtidas --</h1>
+                    <b>
+                        <p id="KPITotalCurtidas">Carregando...</p>
+                    </b>
+                </div>
+
+            </div>
+
+            <div class="Body">
+
+
+                <div class="container-graficoUm">
+                    <div>
+                        <canvas id="MainGraficoLinha"></canvas>
+                    </div>
+                </div>
+
+
+                <div class="container-GraficoDoisETres">
+                    <div class="container-graficobarras">
+                         <div>
+                            <canvas id="IDGraficoBarra"></canvas>
+                        </div>
+                    </div>
+                    <div class="container-graficoDonuts">
+                          <div>
+                                <canvas id="IDGraficoDonuts"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
+
+
+
+
+    </div>
+
+</body>
+</html>
