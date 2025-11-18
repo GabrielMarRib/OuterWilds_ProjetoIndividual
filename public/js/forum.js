@@ -78,7 +78,7 @@ function ObterPostagens() {
 function PlotarPostagens(){
     var ElementoPai = document.getElementById('IDcontainer-postagens');
 
-    for (var i = 0; i < DadosPostagens.length; i++) {
+    for (var i = DadosPostagens.length -1; i >= 0; i--) {
         console.log(i + "/" + DadosPostagens.length)
         var NovaPostagem = document.createElement('div')
         NovaPostagem.setAttribute('id', `Postagem-${i}`)
