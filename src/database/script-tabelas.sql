@@ -1,6 +1,3 @@
-
-
-
 create database OuterWilds;
 use OuterWilds;
 
@@ -23,6 +20,16 @@ qtd_conquista int,
 fk_idconsole int,
 constraint foreign key (fk_idconsole) references console(idconsole)
 );
+create table postagem(
+idpostagem int primary key auto_increment,
+FkUsuario_idUsuario int,
+titulo varchar(30),
+dt_postagem datetime,
+Imgpostagem varchar(255),
+qtd_curtidas INT,
+descricao varchar(200)
+);
+
 create table comentario(
 idcomentario int,
 fk_idusuario int,
@@ -32,15 +39,6 @@ qtd_curtidas int,
 primary key (idcomentario, fk_idusuario, fk_idpostagem),
 foreign key (fk_idusuario) references usuario(idusuario),
 foreign key (fk_idpostagem) references postagem(idpostagem)
-);
-create table postagem(
-idpostagem int primary key auto_increment,
-FkUsuario_idUsuario int,
-titulo varchar(30),
-dt_postagem datetime,
-Imgpostagem varchar(255),
-qtd_curtidas INT,
-descricao varchar(200)
 );
 
 
@@ -142,11 +140,39 @@ select * from postagem;
  select titulo as titulo, qtd_curtidas as qtdcurtidas from postagem where FkUsuario_idUsuario = 1 ;
 
 select * from postagem where FkUsuario_idUsuario = 2;
-UPDATE postagem SET qtd_curtidas = 100 where idpostagem = 1;
+UPDATE postagem SET qtd_curtidas = 10 where idpostagem = 1;
 
 -- GRAFICO DE DONUTS
 -- QUANTIDADE DE POSTAGEM POR USUARIO 
 select * from usuario;
 select * from postagem;
 
+update postagem set Imgpostagem = 'https://static.vecteezy.com/ti/fotos-gratis/t2/36324708-ai-gerado-cenario-do-uma-tigre-caminhando-dentro-a-floresta-foto.jpg' where idpostagem = 1;
+
+
+update postagem set Imgpostagem = 'https://platform.vox.com/wp-content/uploads/sites/2/chorus/uploads/chorus_asset/file/15443821/RAM_S2_Ep205.0.0.1505932128.jpg?quality=90&strip=all&crop=7.8125,0,84.375,100' where idpostagem = 2;
+
+-- FAZER POSTAGEM
+INSERT INTO postagem (FkUsuario_idUsuario, titulo, dt_postagem, Imgpostagem, qtd_curtidas, descricao) 
+VALUES (1, "titulo", "img", "QTd_curtidas", "descricao");
+
 select usuario.nome as nome, COUNT(idPostagem) as qtdpostagens from usuario LEFT JOIN postagem ON idusuario = FkUsuario_idUsuario GROUP BY usuario.nome;
+
+select * from postagem;
+delete from postagem where idpostagem > 8;
+-- 1. Gabriel: Nave
+UPDATE postagem 
+SET Imgpostagem = 'https://static.wikia.nocookie.net/outerwilds_gamepedia/images/6/62/Model_ship.png' 
+WHERE idPostagem = 1;
+
+UPDATE postagem SET Imgpostagem = 'https://indiegameculture.com/wp-content/uploads/2022/09/outer_wilds_walkthrough.png' WHERE (idpostagem = 1);
+UPDATE postagem SET Imgpostagem = 'https://assets.nintendo.com/image/upload/ar_16:9,b_auto:border,c_lpad/b_white/f_auto/q_auto/dpr_1.5/c_scale,w_500/store/software/switch/70010000038712/5c90aecec1d337a77b96f10ff05f9964f6424e63edd0a9e6428eaef9de19c78e' WHERE (idpostagem = 2);
+UPDATE postagem SET Imgpostagem = 'https://images.squarespace-cdn.com/content/v1/5b2cf691506fbed2cdb0c226/1590078721537-EJQYRV30TVUEGN7YM71U/maxresdefault-3.jpg' WHERE (idpostagem = 3);
+UPDATE postagem SET Imgpostagem = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhkMad_bKhusbQ9ZOf6zzuq3SKdVKzHh9zuA&s' WHERE (idpostagem = 4);
+UPDATE postagem SET Imgpostagem = 'https://i0.wp.com/waytoomany.games/wp-content/uploads/2019/10/EHnirBWUEAMx4n4.jpg?ssl=1' WHERE (idpostagem = 5);
+UPDATE postagem SET Imgpostagem = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgOvDR1lXHMjway2yPuTH0eezLUgv3e3SqWg&s' WHERE (idpostagem = 6);
+UPDATE postagem SET Imgpostagem = 'https://i0.wp.com/epiloguegaming.com/wp-content/uploads/2022/03/20220310210647_1.jpg?resize=1024%2C576&ssl=1' WHERE (idpostagem = 7);
+UPDATE postagem SET Imgpostagem = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBQ5dLP4QOK9K-zFYZ81Mhc-pK_theKJ8gwg&s' WHERE (idpostagem = 8);
+UPDATE postagem SET Imgpostagem = 'https://images.squarespace-cdn.com/content/v1/5b2cf691506fbed2cdb0c226/1590078721537-EJQYRV30TVUEGN7YM71U/maxresdefault-3.jpg' WHERE (idpostagem = 9);
+UPDATE postagem SET Imgpostagem = 'https://www.mobiusdigitalgames.com/uploads/4/7/3/2/47328935/ow-shipinterior_orig.png' WHERE (idpostagem = 10);
+UPDATE postagem SET Imgpostagem = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXXQOB65UJdXEffdnBR-0G8DDfdZ4hgGyYtg&s' WHERE (idpostagem = 11);
