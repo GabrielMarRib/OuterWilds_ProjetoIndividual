@@ -1,0 +1,260 @@
+body::-webkit-scrollbar {
+    /* Esconder a barra de rolagem sem tirar a função dela */
+    width: 0; 
+    height: 0;
+}
+body{
+    margin: 0;
+    width: 100vw;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Nunito Sans" Arial, Helvetica, sans-serif;
+    background-color: #060F1E;
+    display: flex;
+    flex-direction: column;
+    top: 0;
+    left: 0;
+}
+
+body::-webkit-scrollbar {
+    /* Esconder a barra de rolagem sem tirar a função dela */
+    width: 0; 
+    height: 0;
+}
+ /* Versão um */
+@keyframes flutuacaoSolta1 {
+  0%   { 
+    transform: translate(0, 0); 
+  }
+  15%  { 
+    /* Aumentado de -3px para -8px em X, e de -8px para -15px em Y */
+    transform: translate(-8px, -5px); /* Movimento mais forte para cima/esquerda */
+  }
+  38%  { 
+    /* Aumentado de 5px para 12px em X, e de 3px para 8px em Y */
+    transform: translate(12px, 8px);  /* Movimento grande para baixo/direita */
+  }
+  50%  { 
+    /* Aumentado de 8px para 15px em X, e de -5px para -10px em Y */
+    transform: translate(15px, -10px); /* Ponto máximo para direita/acima */
+  }
+  77%  { 
+    /* Aumentado de -5px para -10px em X, e de 6px para 12px em Y */
+    transform: translate(-10px, 12px); /* Movimento forte para baixo/esquerda */
+  }
+  100% { 
+    transform: translate(0, 0);      /* Volta ao início */
+  }
+}
+
+
+
+/* NAVBAR */
+.NavBar{
+    z-index: 10;
+    width: 100vw;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border: solid #FF2; */
+    animation-name: flutuacaoSolta1;
+    animation-duration: 30s; 
+    animation-timing-function: ease-in-out; 
+    animation-iteration-count: infinite; 
+}
+.NavBar .container-main-Navbar{
+    display: flex;
+    border: solid #FFFF;
+    margin-top: 10px;
+    border-radius: 15px;
+    width: 80%;
+    height: 70px;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    backdrop-filter: bluer;
+}
+.container-main-Navbar .Imagem img{
+    width: 70px;
+    margin-bottom: -10px;
+}
+/* Options */
+.container-btns{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    /* border: solid #CFF3; */
+    gap: 20px;
+}
+
+
+
+
+.Option-ativo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    cursor: pointer;
+}
+.Option-desativo span{
+    color: #FFFF;
+    font-size: 20px;
+    cursor: pointer;
+}
+.Option-desativo:hover img{
+    opacity: 100%;
+}
+
+
+.Option-desativo img{
+    width: 20px;
+    opacity: 0;
+}
+.Option-ativo span{
+    color: #4CBCC3;
+    font-size: 25px;
+}
+.Option-ativo img{
+    width: 20px;
+    vertical-align: middle;
+    margin: 0;
+    
+}
+
+
+/* FIM OPTION */
+.container-profile{
+    display: flex;
+    flex-direction: row;
+    /* border: solid white; */
+    align-items: center;
+    gap: 10px   ;
+    height: 100%;
+}
+#UserName{
+    color: white;
+    font-size: 30px;
+ /* border: solid white; */
+flex-direction: row;
+}
+.container-profile img{
+    width: 25px;
+}
+.container-loginECadastro button{
+    background-color: #241860;
+    border: 0.1rem solid white;
+    box-shadow: 5px 3px 4px 0.1rem #ffffff35;
+    width: 100px;
+    height: 30px;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+}
+
+
+
+
+
+
+/* ///////// FIM DA NAVBAR ///////////// */
+.container-body{
+    display: flex;
+    border: solid white;
+    width: 100%;
+    height: auto;
+    justify-content: center;
+}
+.container-main{
+    border: solid white;
+    display: flex;
+    width: 85%;
+    height: 100%;
+    margin-top: 7%;
+    flex-direction: column;
+}
+.container-postar{
+    display: flex;
+    border: solid red;
+    width: 100%;
+    height: 40%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: rgb(249, 237, 217);
+}
+.container-postar input{
+    /* background-color: #ffffffc3; */
+    height: 30px;
+    width: 20%;
+    border: solid black;
+    text-align: start;
+    border-radius: 10px;
+}
+.container-postar textarea{
+    width: 25%;
+    height: 80px;
+    border: solid black;
+    border-radius: 10px;
+}
+.container-postagens{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    border: solid blue;
+    justify-self: center;
+    align-items: center;
+}
+.container-postagem{
+    display: flex;
+    flex-direction: column;
+    border: solid pink ;
+    width: 40%;
+    height: 550px;
+    margin-top: 40px;
+}
+.container-imagem-postagem{
+    border: solid red;
+    width: 100%;
+    height: 60%;
+    background-color: antiquewhite;
+}
+.barra-like-titulo{
+    width: 100%;
+    border: solid green;
+    display: flex;
+    flex-direction: row;
+    height: auto;
+}
+.container-titulo-postagem{
+    width: 70%;
+    color: white;
+    font-size: 10px;
+    text-align: center;
+    border: solid green;
+}
+.container-like-comentarios{
+    width: 30%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0;
+}
+
+.container-like-comentarios img{
+    width: 50%;
+}
+.container-descricao{
+    background-color: azure ;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    height: 30%;
+}
+.container-descricao p{
+    width: 90%;
+}

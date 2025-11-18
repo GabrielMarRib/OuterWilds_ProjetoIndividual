@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/PagCadastro.css">
+    <link rel="shortcut icon" href="assets/Icons/favicon.svg" type="image/x-icon">
+    <link rel="stylesheet" href="css/PagForum.css">
+    <script src="js/forum.js" type="module"></script>
+
+    <title>Outer Wilds</title>
+</head>
+
+<body>
+
+    <nav class="NavBar">
+        <div class="container-main-Navbar">
+            <a href="index.html">
+                <div class="Imagem">
+                    <img src="./assets/Lancamento/LogoNavbar.png" alt="">
+                </div>
+
+            </a>
+            <div class="container-btns">
+                <div class="Option-desativo" onclick="FnScrollTela('Home')">
+                    <img src="assets/index/PointerOption.svg" alt="">
+                    <span>Home</span>
+                </div>
+                <div class="Option-desativo" onclick="FnScrollTela('Historia')">
+                    <img src="assets/index/PointerOption.svg" alt="">
+                    <span>Historia</span>
+                </div>
+                <div class="Option-desativo" onclick="FnScrollTela('Exploradores')">>
+                    <img src="assets/index/PointerOption.svg" alt="">
+                    <span>Exploradores</span>
+                </div>
+                <div class="Option-desativo" onclick="FnScrollTela('Atlas')">
+                    <img src="assets/index/PointerOption.svg" alt="">
+                    <span>Atlas Cósmico</span>
+                </div>
+                <div class="Option-desativo">
+                    <img src="assets/index/PointerOption.svg" alt="">
+                    <span>Forum</span>
+                </div>
+                <div class="Option-desativo" onclick="FnScrollTela('ME')">>
+                    <img src="assets/index/PointerOption.svg" alt="">
+                    <span>Dev</span>
+                </div>
+
+            </div>
+
+            <div class="container-profile" id="IdProfileLogado">
+                <img src="assets/Lancamento/Profile.png" alt="">
+                <p id="UserName"></p>
+            </div>
+
+
+            <div class="container-loginECadastro" id="IdProfileDesLogado">
+                <a href="./Cadastro.html">
+                    <button>Cadastro</button>
+                </a>
+                <a href="./Login.html">
+                    <button>Login</button>
+                </a>
+            </div>
+
+        </div>
+    </nav>
+    <!-- FIM DA NAVBAR -->
+
+
+    <div class="container-body">
+
+        <div class="container-main">
+            <div class="container-postar">
+                <h2>O que que está pegando?</h2>
+                <input type="text" id="Ipt_titulo" placeholder="Titulo: ex: Descobri uma nova area!">
+                <input type="file" id="Ipt_imagem">
+                <textarea name="" id="Ipt_Descricao"
+                    placeholder="Descrição: ex: Achei essa area perto do planeta...."></textarea>
+            </div>
+
+            <div class="container-postagens" id="IDcontainer-postagens">
+
+                <div class="container-postagem">
+                    <div class="container-imagem-postagem">
+                        <img src="" alt="" id="">
+                    </div>
+                    <div class="barra-like-titulo">
+                        <div class="container-titulo-postagem">
+                            <h1>TITULO</h1>
+                        </div>
+                        <div class="container-like-comentarios">
+                            <div class="container-like-comentarios like"><img src="./assets/Forum/Like-blank.png"
+                                    alt=""></div>
+                            <div class="container-like-comentarios comentarios"><img src="./assets/Forum/bater-papo.png"
+                                    alt=""></div>
+                        </div>
+                    </div>
+                    <div class="container-descricao">
+                        <p>
+                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                            been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
+                            galley of type and scrambled it to make a type specimen book. It has survived not only five
+                            centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+                            It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum
+                            passages, and more recently with desktop publishing software like Aldus PageMaker including
+                            versions of Lorem Ipsum.
+                        </p>
+                    </div>
+
+                </div>
+
+                      <!-- <div class="container-postagem">
+                    <div class="container-imagem-postagem">
+                        <img src="" alt="">
+                    </div>
+                    <div class="barra-like-titulo">
+                        <div class="container-titulo-postagem">
+                            <h1>TITULO</h1>
+                        </div>
+                        <div class="container-like-comentarios">
+                            <div class="container-like-comentarios like"><img src="./assets/Forum/Like-blank.png"
+                                    alt=""></div>
+                            <div class="container-like-comentarios comentarios"><img src="./assets/Forum/bater-papo.png"
+                                    alt=""></div>
+                        </div>
+                    </div>
+                    <div class="container-descricao">
+                        <p>
+                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                            been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
+                            galley of type and scrambled it to make a type specimen book. It has survived not only five
+                            centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+                            It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum
+                            passages, and more recently with desktop publishing software like Aldus PageMaker including
+                            versions of Lorem Ipsum.
+                        </p>
+                    </div>
+
+                </div> -->
+
+
+
+
+            </div>
+
+
+
+        </div>
+    </div>
+
+
+
+
+</body>
+
+</html>

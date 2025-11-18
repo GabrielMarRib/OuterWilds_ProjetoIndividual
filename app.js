@@ -18,6 +18,7 @@ var app = express();
 var indexRouter = require("./src/routes/index");
 var usuarios = require("./src/routes/usuarios");
 var dashboard = require("./src/routes/dashboard");
+var forum = require("./src/routes/forum");
 
 
 
@@ -35,6 +36,7 @@ app.use(cors());
 app.use("/", indexRouter);
 app.use("/usuarios", usuarios);
 app.use("/dashboard", dashboard);
+app.use("/forum", forum);
 
 
 

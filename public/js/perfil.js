@@ -296,10 +296,6 @@ function PlotarGrafico(tipografico) {
 }
 
 
-
-
-
-
 function AtualizarGrafico(Tipo, grafico) {
     console.log(`CHEGAMOS NO ATUALIZAR GRAFICO (${Tipo})`);
     var Idusuario = sessionStorage.getItem('ID_USUARIO');
@@ -378,4 +374,12 @@ function AtualizarGrafico(Tipo, grafico) {
     .catch(function (error) {
         console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
     });
+}
+
+function FnDeslogar(){
+    console.log("TESTE")
+    sessionStorage.EMAIL_USUARIO = null;
+    sessionStorage.NOME_USUARIO = null;
+    sessionStorage.ID_USUARIO = null;
+    window.location.assign("./")
 }
