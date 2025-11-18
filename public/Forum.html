@@ -7,7 +7,8 @@
     <link rel="stylesheet" href="./css/PagCadastro.css">
     <link rel="shortcut icon" href="assets/Icons/favicon.svg" type="image/x-icon">
     <link rel="stylesheet" href="css/PagForum.css">
-    <script src="js/forum.js" type="module"></script>
+    <script src="js/forum.js"></script>
+   
 
     <title>Outer Wilds</title>
 </head>
@@ -74,15 +75,16 @@
 
         <div class="container-main">
             <div class="container-postar">
-                <h2>O que que está pegando?</h2>
+                <h2>Faça uma postagem!</h2>
                 <input type="text" id="Ipt_titulo" placeholder="Titulo: ex: Descobri uma nova area!">
-                <input type="file" id="Ipt_imagem">
-                <textarea name="" id="Ipt_Descricao"
-                    placeholder="Descrição: ex: Achei essa area perto do planeta...."></textarea>
-            </div>
+                <input type="text" id="Ipt_imagem" placeholder="URL da img: ex: https://imagem.img.com/...">
+                <textarea name="" id="Ipt_Descricao" placeholder="Descrição: ex: Achei essa area perto do planeta...."></textarea>
+                    <button onclick="FnPostar()">Postar</button>
+            </div>  
+            <hr class="hr">
+             <div class="container-postagens" id="IDcontainer-postagens">
 
-            <div class="container-postagens" id="IDcontainer-postagens">
-
+                
                 <div class="container-postagem">
                     <div class="container-imagem-postagem">
                         <img src="" alt="" id="">
@@ -92,6 +94,7 @@
                             <h1>TITULO</h1>
                         </div>
                         <div class="container-like-comentarios">
+                            <p>10</p>
                             <div class="container-like-comentarios like"><img src="./assets/Forum/Like-blank.png"
                                     alt=""></div>
                             <div class="container-like-comentarios comentarios"><img src="./assets/Forum/bater-papo.png"
@@ -112,41 +115,20 @@
 
                 </div>
 
-                      <!-- <div class="container-postagem">
-                    <div class="container-imagem-postagem">
-                        <img src="" alt="">
-                    </div>
-                    <div class="barra-like-titulo">
-                        <div class="container-titulo-postagem">
-                            <h1>TITULO</h1>
-                        </div>
-                        <div class="container-like-comentarios">
-                            <div class="container-like-comentarios like"><img src="./assets/Forum/Like-blank.png"
-                                    alt=""></div>
-                            <div class="container-like-comentarios comentarios"><img src="./assets/Forum/bater-papo.png"
-                                    alt=""></div>
-                        </div>
-                    </div>
-                    <div class="container-descricao">
-                        <p>
-                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
-                            been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
-                            galley of type and scrambled it to make a type specimen book. It has survived not only five
-                            centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
-                            It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum
-                            passages, and more recently with desktop publishing software like Aldus PageMaker including
-                            versions of Lorem Ipsum.
-                        </p>
-                    </div>
-
-                </div> -->
-
+         
 
 
 
             </div>
 
 
+            <div class="container-alerta" id="IDcontaineralerta">
+                <div>
+                    <img src="assets/Cadastro/IconAlerta.png" alt="">
+                </div>
+                <hr>
+                <p id="mensagem_erro2">Usuario já cadastrado</p>
+            </div>
 
         </div>
     </div>

@@ -72,8 +72,9 @@ body::-webkit-scrollbar {
     height: 70px;
     flex-direction: row;
     justify-content: space-around;
+    
     align-items: center;
-    backdrop-filter: bluer;
+    backdrop-filter: blur(2.5px);
 }
 .container-main-Navbar .Imagem img{
     width: 70px;
@@ -162,69 +163,87 @@ flex-direction: row;
 /* ///////// FIM DA NAVBAR ///////////// */
 .container-body{
     display: flex;
-    border: solid white;
+    /* border: solid #FF7D25; */
     width: 100%;
     height: auto;
     justify-content: center;
+    /* border-radius: 15px; */
 }
 .container-main{
-    border: solid white;
+    /* border: solid #FF7D25; */
     display: flex;
     width: 85%;
     height: 100%;
     margin-top: 7%;
     flex-direction: column;
+    align-items: center;
+    border-radius: 15px;
+
 }
 .container-postar{
     display: flex;
-    border: solid red;
-    width: 100%;
+    border: solid #FF7D25;
+    width: 30%;
     height: 40%;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    color: rgb(249, 237, 217);
+    color: #FF7D25;
+    background-color: white;
+    border-radius: 10px;
+    padding: 15px;
+    gap: 10px;
 }
 .container-postar input{
     /* background-color: #ffffffc3; */
     height: 30px;
-    width: 20%;
-    border: solid black;
+    width: 100%;
+    /* border: solid black; */
     text-align: start;
-    border-radius: 10px;
+    border-radius: 5px;
+    background-color: antiquewhite;
 }
 .container-postar textarea{
-    width: 25%;
+    width: 100%;
     height: 80px;
     border: solid black;
-    border-radius: 10px;
+    border-radius: 5px;
+      background-color: white;
 }
 .container-postagens{
     width: 100%;
     height: 100%;
     display: flex;
     flex-direction: column;
-    border: solid blue;
+    /* border: solid blue; */
     justify-self: center;
     align-items: center;
 }
 .container-postagem{
     display: flex;
     flex-direction: column;
-    border: solid pink ;
+    border: solid rgb(255, 255, 255) ;
     width: 40%;
-    height: 550px;
+    height: auto;
     margin-top: 40px;
+    border-radius: 10px;
 }
 .container-imagem-postagem{
-    border: solid red;
+    /* border: solid red;    */
     width: 100%;
     height: 60%;
     background-color: antiquewhite;
+  
 }
+.container-imagem-postagem img{
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
 .barra-like-titulo{
     width: 100%;
-    border: solid green;
+    /* border: solid green; */
     display: flex;
     flex-direction: row;
     height: auto;
@@ -234,7 +253,7 @@ flex-direction: row;
     color: white;
     font-size: 10px;
     text-align: center;
-    border: solid green;
+    /* border: solid green; */
 }
 .container-like-comentarios{
     width: 30%;
@@ -244,17 +263,82 @@ flex-direction: row;
     align-items: center;
     gap: 0;
 }
+.container-like-comentarios p{
+    color: white;
+    font-size: 17px;
+}
 
 .container-like-comentarios img{
     width: 50%;
+    cursor: pointer;
 }
 .container-descricao{
-    background-color: azure ;
+    background-color: rgba(240, 255, 255, 0.685) ;
     width: 100%;
     display: flex;
     justify-content: center;
-    height: 30%;
+    height: 100%;
+    color: white;
+    font-size: 15px;
 }
 .container-descricao p{
     width: 90%;
+    height: auto;
+}
+hr{
+    width: 90%;
+    color: white;
+}
+.container-postar button{
+    width: 80%;
+    height: 35px;
+    border-radius: 10px;
+    background-color: #FF7D25;
+    color: white;
+    font-size: 25px;
+    cursor: pointer;
+}
+.container-postar button:hover{
+    background-color: #ff7c259c;
+}
+.container-alerta{
+    position: fixed;
+    border: solid #D8D8D8;
+    width: 340px;
+    height: 120px;
+    display: flex;
+
+    bottom: 10px;
+    border-radius: 15px;
+    /* background-color: #FF7D25; */
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    opacity: 0;
+    transition: opacity ease-in-out 1s;
+    left: 10px;
+}
+.container-alerta div{
+    /* border: solid #FF7D25; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.container-alerta img{
+    width: 20%;
+    margin: 0;
+}
+.container-alerta hr{
+    color: black;
+    width: 80%;
+    margin-top: -5px
+}
+.container-alerta p{
+    color: rgb(0, 0, 0);
+    font-size:20px;
+    text-align: center;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+
 }

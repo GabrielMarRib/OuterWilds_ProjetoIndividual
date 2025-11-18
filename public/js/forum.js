@@ -1,4 +1,20 @@
 
+function Alerta(Msg, Cor) {
+    if (Msg == '') {
+        return
+    }
+    Opacidade = IDcontaineralerta.style.opacity
+    if (Opacidade == 0) {
+        IDcontaineralerta.style.opacity = "100";
+        mensagem_erro2.style.color = Cor
+        mensagem_erro2.innerHTML = Msg
+        setInterval(() => { IDcontaineralerta.style.opacity = "0" }, 3000)
+    } else {
+        IDcontaineralerta.style.opacity = "0";
+
+    }
+
+}
 document.addEventListener("DOMContentLoaded", function () {
     //sessionStorage.EMAIL_USUARIO = json.email;
     //sessionStorage.NOME_USUARIO = json.nome;
@@ -13,6 +29,12 @@ document.addEventListener("DOMContentLoaded", function () {
         window.location.assign('./Login.html')
     }
 
+    //Limpar postagens 
+     var Postagens = document.getElementById('IDcontainer-postagens');
+    Postagens.innerHTML = ""
+    DadosPostagens = []
+
+
 
     // OBTER POSTAGENS
     ObterPostagens()
@@ -21,6 +43,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 var DadosPostagens = []
+
 function ObterPostagens() {
 
 
@@ -51,11 +74,12 @@ function ObterPostagens() {
         console.log(`#ERRO: ${resposta}`);
     });
 }
+
 function PlotarPostagens(){
     var ElementoPai = document.getElementById('IDcontainer-postagens');
 
     for (var i = 0; i < DadosPostagens.length; i++) {
-        
+        console.log(i + "/" + DadosPostagens.length)
         var NovaPostagem = document.createElement('div')
         NovaPostagem.setAttribute('id', `Postagem-${i}`)
         NovaPostagem.classList.add('container-postagem');
@@ -78,10 +102,17 @@ function PlotarPostagens(){
         titulo.textContent = DadosPostagens[i].titulo; 
         containerTitulo.appendChild(titulo);
 
-
+        
+        
         // Likes e Comentários
         var containerLikeComentarios = document.createElement('div');
         containerLikeComentarios.classList.add('container-like-comentarios');
+        
+        // Likes
+        var plikes = document.createElement('p')
+        plikes.textContent = DadosPostagens[i].qtd_curtidas
+        plikes.setAttribute('id', `LikeId${i}`)
+        containerLikeComentarios.appendChild(plikes)
 
         // Botão Like
         var divLike = document.createElement('div');
@@ -89,6 +120,8 @@ function PlotarPostagens(){
         var imgLike = document.createElement('img');
         imgLike.src = './assets/Forum/Like-blank.png';
         imgLike.alt = 'Like';
+        imgLike.setAttribute('id', `ImgLike${i}`)
+        imgLike.setAttribute('onclick', `Curtir('LikeId${i}', 'ImgLike${i}')`)
         divLike.appendChild(imgLike);
 
         // Botão Comentários
@@ -123,4 +156,70 @@ function PlotarPostagens(){
         NovaPostagem.appendChild(containerDescricao);
         ElementoPai.appendChild(NovaPostagem);
     }
+
+}
+
+
+function FnPostar(){
+    console.log("Entrou na função")
+    var Idusuario = sessionStorage.getItem('ID_USUARIO');
+    var Ipt_TituloPostagem = document.getElementById("Ipt_titulo");
+    var Ipt_ImagemPostagem = document.getElementById("Ipt_imagem");
+    var Ipt_DescricaoPostagem = document.getElementById("Ipt_Descricao");
+
+    if(Ipt_TituloPostagem.value == "" || Ipt_ImagemPostagem.value == "" || Ipt_DescricaoPostagem.value == ""){
+        Alerta("Algum dos campos não foi preenchido!", '#bdd600')
+        return
+    }
+    
+    fetch("/forum/postar", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            idusuario: Idusuario,
+            imagem: Ipt_ImagemPostagem.value,
+            titulo: Ipt_TituloPostagem.value,
+            descricao: Ipt_DescricaoPostagem.value
+        })
+    })
+
+        .then(function (ResultadoKPIS) {
+
+            console.log("RESULTADO DA POSTAGEM: " + JSON.stringify(ResultadoKPIS));
+            
+            Ipt_ImagemPostagem.value = ""
+            Ipt_TituloPostagem.value = ""
+            Ipt_DescricaoPostagem.value = ""
+            Alerta("Postado com sucesso", 'green')
+            setTimeout(() => {  window.location.reload()}, 3000)
+        
+        })
+        .catch(function (erro) {
+
+            console.log("Erro na requisição: " + erro);
+             Alerta("Erro na postagem", 'red')
+                
+        });
+
+
+    }
+
+
+function Curtir(IdElementoLike, idElementoImagem){
+    console.log("Caiu na função" + IdElementoLike)
+    Input_QtdCurtidas = document.getElementById(IdElementoLike)
+    Input_ImgCurtida = document.getElementById(idElementoImagem)
+    QtdCurtidas = Number(Input_QtdCurtidas.innerHTML)
+
+    if((Input_ImgCurtida.src).endsWith('Like-blank.png')) {
+        console.log("CAIu no if")
+        Input_ImgCurtida.src = './assets/Forum/liked.png'
+        Input_QtdCurtidas.innerHTML = (QtdCurtidas + 1)
+    }else{
+        Input_ImgCurtida.src = './assets/Forum/Like-blank.png'
+        Input_QtdCurtidas.innerHTML = (QtdCurtidas - 1)
+    }
+
 }
