@@ -41,8 +41,6 @@ foreign key (fk_idusuario) references usuario(idusuario),
 foreign key (fk_idpostagem) references postagem(idpostagem)
 );
 
-
-
 --
 -- INSERINDO DADOS DE EXEMPLO
 --
