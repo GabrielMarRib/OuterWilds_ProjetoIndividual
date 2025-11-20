@@ -261,3 +261,23 @@
     text-decoration: none;
     color: #4CBCC3;
   }
+  .Myinfos{
+    position: absolute;
+    right: 10px;
+    bottom: 0;
+    /* border: solid red; */
+    width: auto;
+    height: 90px;
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    /* align-items: center; */
+    gap: 20px ;
+  }
+  
+.Myinfos img{
+  height: 85%;
+}
+#EU{
+  border-radius: 50px;
+}

@@ -26,6 +26,7 @@ function FnCadastrar() {
   var UserSenha = Input_UserSenha.value;
   var UserConfirmaSenha = Input_UserConfirmarSenha.value;
   var TermosECondicoes = Input_Termos.checked
+  // var MensagemErro = MensagemErros.innerHTML
 
   if (TermosECondicoes == false) {
     Alerta("Termos&Condições não aceitos!", "#b09000");
@@ -42,11 +43,70 @@ function FnCadastrar() {
   if (UserName.length < 3) {
     Alerta("Nome muito pequeno", "#b09000");
   }
+  
+  // SENHA
+
+    MensagemErros.innerHTML = ""
+
+    if(UserSenha.length < 8){
+     MensagemErros.innerHTML = "Senha muito pequena! Minino de 8 caracteres"
+     return
+    }
+    var ListaNumeros = '1234567890'
+    var ContemNumero = false
+
+    for (let i = 0; i < UserSenha.length; i++) {
+        for (let b = 0; b < ListaNumeros.length; b++) {
+            if(UserSenha[i] == ListaNumeros[b]){
+              ContemNumero = true
+              break
+            }        
+        }
+          if(ContemNumero){
+            break
+          }
+    }
+    if(!ContemNumero){
+      MensagemErros.innerHTML += "Sua senha precisa conter um numero!"
+      return
+    }
+
+    var ListaSimbolos = '@#$%&*_'
+    var ContemSimbolo = false
+
+    for (let i = 0; i < UserSenha.length; i++) {
+        for (let b = 0; b < ListaSimbolos.length; b++) {
+            if(UserSenha[i] == ListaSimbolos[b]){
+              ContemSimbolo = true
+              break
+            }        
+        }
+          if(ContemSimbolo){
+            break
+          }
+    }
+    if(!ContemSimbolo){
+      MensagemErros.innerHTML += "Sua senha precisa conter um simbolo!"
+      return
+    }
+    
+
+    var contemMaiuscula = UserSenha.toLowerCase() !== UserSenha;
+    var contemMinuscula = UserSenha.toUpperCase() !== UserSenha;
+    
+    if(!contemMaiuscula){
+      MensagemErros.innerHTML += "Sua senha precisa conter um caractere maiúsculo<br>";
+      return;
+    }
+
+    if(!contemMinuscula){
+      MensagemErros.innerHTML += "Sua senha precisa conter um caractere minúsculo<br>";
+      return;
+    }
 
 
 
 
-  // Verificando se o código de ativação é de alguma empresa cadastrada
   for (let i = 0; i < UsuariosCadastrados.length; i++) {
     if (UsuariosCadastrados[i].email == userEmail) {
       Alerta("Email já cadastrado!", "red")
@@ -61,8 +121,7 @@ function FnCadastrar() {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      // crie um atributo que recebe o valor recuperado aqui
-      // Agora vá para o arquivo routes/usuario.js
+   
       nomeServer: UserName,
       emailServer: userEmail,
       senhaServer: UserSenha
@@ -119,17 +178,16 @@ function listar() {
 
 
 
-
 function FnEsconderSenha(Btn, inputsenha) {
   var imgolho = document.getElementById(Btn)
   var Input = document.getElementById(inputsenha)
-  if (imgolho.style.transform == 'scaleX(-1)') {
-    imgolho.style.opacity = '50%'
-    imgolho.style.transform = 'scaleX(1)'
-    Input.type = 'text'
+if (Input.type === 'password') {
+    Input.type = 'text';
+    imgolho.style.opacity = '50%';
+    imgolho.style.transform = 'scaleX(1)'; 
   } else {
-    Input.type = 'password'
-    imgolho.style.transform = 'scaleX(-1)'
-    imgolho.style.opacity = '100%'
+    Input.type = 'password';
+    imgolho.style.opacity = '100%';
+    imgolho.style.transform = 'scaleX(-1)'; 
   }
 }

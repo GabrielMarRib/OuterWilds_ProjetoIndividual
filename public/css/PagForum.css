@@ -105,6 +105,9 @@ body::-webkit-scrollbar {
     font-size: 20px;
     cursor: pointer;
 }
+.Option-desativo a{
+    text-decoration: none;
+}
 .Option-desativo:hover img{
     opacity: 100%;
 }

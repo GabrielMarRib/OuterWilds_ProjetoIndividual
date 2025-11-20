@@ -108,11 +108,18 @@ function PlotarPostagens(){
         var containerLikeComentarios = document.createElement('div');
         containerLikeComentarios.classList.add('container-like-comentarios');
         
+        // NOME
+        var nome = document.createElement('p')
+        nome.textContent = DadosPostagens[i].nome
+        nome.style.marginRight = '10px'
+        containerLikeComentarios.appendChild(nome)
+
         // Likes
         var plikes = document.createElement('p')
         plikes.textContent = DadosPostagens[i].qtd_curtidas
         plikes.setAttribute('id', `LikeId${i}`)
         containerLikeComentarios.appendChild(plikes)
+        
 
         // Botão Like
         var divLike = document.createElement('div');

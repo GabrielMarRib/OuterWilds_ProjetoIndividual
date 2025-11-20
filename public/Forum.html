@@ -21,33 +21,29 @@
                 <div class="Imagem">
                     <img src="./assets/Lancamento/LogoNavbar.png" alt="">
                 </div>
-
+                
             </a>
             <div class="container-btns">
-                <div class="Option-desativo" onclick="FnScrollTela('Home')">
+                <div class="Option-desativo" onclick="FnScrollTela('ME')">
                     <img src="assets/index/PointerOption.svg" alt="">
-                    <span>Home</span>
+                    <a href="./index.html">
+                        <span>Tela incial</span>
+                    </a>
                 </div>
+           
                 <div class="Option-desativo" onclick="FnScrollTela('Historia')">
                     <img src="assets/index/PointerOption.svg" alt="">
-                    <span>Historia</span>
+                    <a href="./Lancamento.html">
+                        <span>Historia</span>
+                    </a>
                 </div>
-                <div class="Option-desativo" onclick="FnScrollTela('Exploradores')">>
+                   <div class="Option-desativo" onclick="FnScrollTela('Historia')">
                     <img src="assets/index/PointerOption.svg" alt="">
-                    <span>Exploradores</span>
+                    <a href="./Perfil.html">
+                        <span>Dashboard</span>
+                    </a>
                 </div>
-                <div class="Option-desativo" onclick="FnScrollTela('Atlas')">
-                    <img src="assets/index/PointerOption.svg" alt="">
-                    <span>Atlas Cósmico</span>
-                </div>
-                <div class="Option-desativo">
-                    <img src="assets/index/PointerOption.svg" alt="">
-                    <span>Forum</span>
-                </div>
-                <div class="Option-desativo" onclick="FnScrollTela('ME')">>
-                    <img src="assets/index/PointerOption.svg" alt="">
-                    <span>Dev</span>
-                </div>
+          
 
             </div>
 
@@ -69,9 +65,9 @@
         <div class="container-main">
             <div class="container-postar">
                 <h2>Faça uma postagem!</h2>
-                <input type="text" id="Ipt_titulo" placeholder="Titulo: ex: Descobri uma nova area!">
-                <input type="text" id="Ipt_imagem" placeholder="URL da img: ex: https://imagem.img.com/...">
-                <textarea name="" id="Ipt_Descricao" placeholder="Descrição: ex: Achei essa area perto do planeta...."></textarea>
+                <input type="text" id="Ipt_titulo" placeholder="Titulo: ex: Descobri uma nova area!" maxlength="25">
+                <input type="text" id="Ipt_imagem" placeholder="URL da img: ex: https://imagem.img.com/..." maxlength="200">    
+                <textarea name="" id="Ipt_Descricao" placeholder="Descrição: ex: Achei essa area perto do planeta...." maxlength="150"></textarea>
                     <button onclick="FnPostar()">Postar</button>
             </div>  
             <hr class="hr">
@@ -87,7 +83,7 @@
                             <h1>TITULO</h1>
                         </div>
                         <div class="container-like-comentarios">
-                            <p>10</p>
+                            <p>0</p>
                             <div class="container-like-comentarios like"><img src="./assets/Forum/Like-blank.png"
                                     alt=""></div>
                             <div class="container-like-comentarios comentarios"><img src="./assets/Forum/bater-papo.png"

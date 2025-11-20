@@ -257,3 +257,7 @@ body{
     display: flex;
   
 }
+#MensagemErros{
+    color: red;
+    font-size: 15px;
+}

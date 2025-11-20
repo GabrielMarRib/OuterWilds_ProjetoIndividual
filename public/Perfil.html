@@ -25,7 +25,10 @@
             <div class="container-btns">
                 <div class="Option-desativo" onclick="FnScrollTela('Home')">
                     <img src="assets/index/PointerOption.svg" alt="">
+                    <a href="./index.html">
+
                         <span>Home</span>
+                    </a>
                 </div>
                 <div class="Option-desativo" onclick="FnScrollTela('Historia')">
                     <img src="assets/index/PointerOption.svg" alt="">
@@ -46,7 +49,7 @@
                 <div class="container-profile" id="IdProfileLogado">
                     <img src="assets/Lancamento/Profile.png" id="IconProfile" alt="">
                     <p id="UserName"></p>
-                    <div onclick="FnDeslogar()">
+                    <div id="btnLogout">
                         <img src="assets/Perfil/exit.png" " id="IconLogOut" alt="">
                     </div>
                 </div>
@@ -74,9 +77,11 @@
                     </b>
                 </div>
 
-                <div class="container-KPI">
+                <div class="container-KPI" id="KPIPostagemCurtida">
+                    <h1>-- Postagem com --</h1>
                     <h1>-- Maior quantidade de curtidas --</h1>
                     <b>
+                        <p id="KPITituloPostagemMaisCurtida">Carregando...</p>
                         <p id="KPIPostagemMaisCurtida">Carregando...</p>
                     </b>
                 </div>

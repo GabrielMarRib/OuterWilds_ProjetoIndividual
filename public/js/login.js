@@ -1,4 +1,4 @@
-const { text } = require("express");
+
 
 function Alerta(Msg, Cor) {
     if (Msg == '') {
@@ -44,7 +44,7 @@ function entrar() {
         })
     }).then(function (resposta) {
         if (resposta.ok) {
-            if (Checkbox == true) {
+            
                 resposta.json().then(json => {
                     console.log(json);
                     console.log(JSON.stringify(json));
@@ -53,12 +53,12 @@ function entrar() {
                     sessionStorage.ID_USUARIO = json.idusuario;
                 });
 
-            }
+            
             console.log("Teste1");
 
             setTimeout(function () {
                 window.location = "./Perfil.html";
-            }, 1000); // apenas para exibir o loading
+            }, 1000); 
         } else {
             resposta.text().then(texto => {
                 console.error(texto);
@@ -75,15 +75,15 @@ function entrar() {
 
 
 function FnEsconderSenha(Btn, inputsenha) {
-    var imgolho = document.getElementById(Btn)
-    var Input = document.getElementById(inputsenha)
-    if (imgolho.style.transform == 'scaleX(-1)') {
-        imgolho.style.opacity = '50%'
-        imgolho.style.transform = 'scaleX(1)'
-        Input.type = 'text'
-    } else {
-        Input.type = 'password'
-        imgolho.style.transform = 'scaleX(-1)'
-        imgolho.style.opacity = '100%'
-    }
+  var imgolho = document.getElementById(Btn)
+  var Input = document.getElementById(inputsenha)
+if (Input.type === 'password') {
+    Input.type = 'text';
+    imgolho.style.opacity = '50%';
+    imgolho.style.transform = 'scaleX(1)'; 
+  } else {
+    Input.type = 'password';
+    imgolho.style.opacity = '100%';
+    imgolho.style.transform = 'scaleX(-1)'; 
+  }
 }

@@ -2,7 +2,7 @@ var database = require("../database/config")
 
 function pegarpostagens() {
     var instrucaoSql = `
-        SELECT * FROM postagem;
+        SELECT * FROM vw_pegarpostagens;
     `;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);

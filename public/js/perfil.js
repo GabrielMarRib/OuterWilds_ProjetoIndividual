@@ -1,6 +1,4 @@
 
-
-
 document.addEventListener("DOMContentLoaded", function () {
     //sessionStorage.EMAIL_USUARIO = json.email;
     //sessionStorage.NOME_USUARIO = json.nome;
@@ -8,10 +6,10 @@ document.addEventListener("DOMContentLoaded", function () {
     var NomeUsuario = sessionStorage.getItem('NOME_USUARIO');
     var EmailUsuario = sessionStorage.getItem('EMAIL_USUARIO');
     console.log(NomeUsuario + "/" + EmailUsuario)
-    if (NomeUsuario && EmailUsuario) {
+
+    if (NomeUsuario && EmailUsuario || NomeUsuario != null || EmailUsuario != null) {
         UserName.innerHTML = NomeUsuario
     } else {
-        console.log("Teste")
         window.location.assign('./Login.html')
     }
 
@@ -31,9 +29,10 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function AtualizarKPI() {
-    console.log("Chegou aqui, atualizou KPI")
+    
     var Input_KPIMediaCurt = document.getElementById("KPIMediaCurtidas");
     var Input_KPIPostagemMaisCurtida = document.getElementById("KPIPostagemMaisCurtida");
+    var Input_KPITituloPostagemMaisCurtida = document.getElementById("KPITituloPostagemMaisCurtida");
     var Input_KPITotalPostagem = document.getElementById("KPITotalPostagem");
     var Input_KPITotalCurtidas = document.getElementById("KPITotalCurtidas");
 
@@ -63,10 +62,11 @@ function AtualizarKPI() {
 
             console.log("RESULTADO KPIS: " + JSON.stringify(ResultadoKPIS));
           
-            Input_KPIMediaCurt.innerHTML = ResultadoKPIS.MediaCurtidas;
-            Input_KPIPostagemMaisCurtida.innerHTML = ResultadoKPIS.PostagemMaisCurtida.qtd_curtidas;
-            Input_KPITotalPostagem.innerHTML = ResultadoKPIS.TotalPostagem;
-            Input_KPITotalCurtidas.innerHTML = ResultadoKPIS.TotalCurtidas;
+            Input_KPIMediaCurt.innerHTML = ResultadoKPIS.MediaCurtidas != 0 ? ResultadoKPIS.MediaCurtidas : 'Nenhuma postagem feita!';
+            Input_KPITituloPostagemMaisCurtida.innerHTML = ResultadoKPIS.PostagemMaisCurtida.titulo != undefined ? ResultadoKPIS.PostagemMaisCurtida.titulo : 'Nenhuma postagem feita!' ;
+            Input_KPIPostagemMaisCurtida.innerHTML = ResultadoKPIS.PostagemMaisCurtida.qtd_curtidas !=  undefined ? ResultadoKPIS.PostagemMaisCurtida.qtd_curtidas : 0;
+            Input_KPITotalPostagem.innerHTML = ResultadoKPIS.TotalPostagem !=  0 ? ResultadoKPIS.TotalPostagem : 'Nenhuma postagem feita!';
+            Input_KPITotalCurtidas.innerHTML = ResultadoKPIS.TotalCurtidas != 0 ? ResultadoKPIS.TotalCurtidas : 'Nenhuma postagem feita!';
 
         })
         .catch(function (erro) {
@@ -125,7 +125,8 @@ function ObterDadosGrafico(tipografico) {
         PlotarGrafico(tipografico);
 
     }).catch(function (resposta) {
-        console.log(`#ERRO: ${resposta}`);
+        console.log(`#ERRO: ${resposta} GRAFICO: ${tipografico}`);
+        PlotarGrafico(tipografico);
     });
 
 
@@ -135,18 +136,21 @@ function ObterDadosGrafico(tipografico) {
 
 function PlotarGrafico(tipografico) {
     console.log('iniciando plotagem do gráfico...');
-
+    console.log(`GRAFICO (${tipografico})`);
     if (tipografico == 'graficolinha') {
+
 
         var datas = []
         var Mediacurtidas = []
+        
+      
         for (var i = 0; i < DadosGraficoLinha.length; i++) {
             datas.push(DadosGraficoLinha[i].data)
         }
         for (var i = 0; i < DadosGraficoLinha.length; i++) {
             Mediacurtidas.push(DadosGraficoLinha[i].mediacurtida)
         }
-
+        
         const ctx = document.getElementById('MainGraficoLinha');
         Chart.defaults.color = 'black'; 
         
@@ -166,7 +170,7 @@ function PlotarGrafico(tipografico) {
             options: {
                 scales: {
                     y: { beginAtZero: true },
-                    x: { ticks: { color: 'black' } } // Ticks herdam a cor padrão
+                    x: { ticks: { color: 'black' } }
                 },
                 responsive: true,
                 maintainAspectRatio: false,
@@ -175,7 +179,7 @@ function PlotarGrafico(tipografico) {
                         display: true,
                         text: 'Media de curtidas por data',
                         color: 'black',
-                        font: { size: 20 } // CORREÇÃO: 'size' vai dentro de 'font'
+                        font: { size: 20 } 
                     }
                 }
             }
@@ -196,7 +200,7 @@ function PlotarGrafico(tipografico) {
         }
 
         const ctx = document.getElementById('IDGraficoBarra');
-        Chart.defaults.color = 'black'; // Define a cor padrão
+        Chart.defaults.color = 'black'; 
         
         GraficoBarra = new Chart(ctx, {
             type: 'bar',
@@ -244,7 +248,7 @@ function PlotarGrafico(tipografico) {
         const ctx = document.getElementById('IDGraficoDonuts');
         Chart.defaults.color = 'white'; 
 
-        // Adicione esta verificação para evitar o erro "Canvas is already in use"
+     
         if (GraficoDonuts) {
             GraficoDonuts.destroy();
         }
@@ -257,8 +261,7 @@ function PlotarGrafico(tipografico) {
                     label: 'Quantidade de postagem',
                     data: qtdpostagens,
                     
-                    // --- 1. MUDANÇA (ADICIONADO) ---
-                    // Gráficos de pizza precisam de um array de cores
+                 
                     backgroundColor: [
                         '#FF7D25',
                         '#FFA07A',
@@ -272,10 +275,7 @@ function PlotarGrafico(tipografico) {
             },
             options: {
                 
-                // --- 2. MUDANÇA (REMOVIDO) ---
-                // O bloco 'scales' foi REMOVIDO daqui.
-                // Isso remove a grade e o fundo.
-                
+           
                 responsive: true,
                 maintainAspectRatio: false,
                 plugins: {
@@ -289,15 +289,13 @@ function PlotarGrafico(tipografico) {
             }
         });
         
-        // --- 3. MUDANÇA (CORRIGIDO) ---
-        // Você precisa passar 'GraficoDonuts' aqui, não 'GraficoBarra'
+    
         setTimeout(() => AtualizarGrafico(tipografico, GraficoDonuts), 2000);
 }
 }
 
 
 function AtualizarGrafico(Tipo, grafico) {
-    console.log(`CHEGAMOS NO ATUALIZAR GRAFICO (${Tipo})`);
     var Idusuario = sessionStorage.getItem('ID_USUARIO');
 
     fetch(`/dashboard/${Tipo}`, {
@@ -311,7 +309,7 @@ function AtualizarGrafico(Tipo, grafico) {
 
                 var novaslabels = [];
                 var novosDados = [];
-                var VarivelControle; // Variável de comparação
+                var VarivelControle; 
 
                 console.log("NOVO REGISTRO:" + JSON.stringify(novoRegistro));
                 
@@ -320,23 +318,23 @@ function AtualizarGrafico(Tipo, grafico) {
                         novaslabels.push(novoRegistro[i].data);
                         novosDados.push(novoRegistro[i].mediacurtida);
                     }
-                    VarivelControle = DadosGraficoLinha; // Pega os dados antigos para comparar
+                    VarivelControle = DadosGraficoLinha; 
                 
                 } else if (Tipo == 'graficobarra') {
                     for (var i = 0; i < novoRegistro.length; i++) {
                         novaslabels.push(novoRegistro[i].titulo);
                         novosDados.push(novoRegistro[i].qtdcurtidas);
                     }
-                    VarivelControle = DadosGraficoBarra; // Pega os dados antigos para comparar
+                    VarivelControle = DadosGraficoBarra; 
                 } else if(Tipo == 'graficodonuts'){
                      for (var i = 0; i < novoRegistro.length; i++) {
                         novaslabels.push(novoRegistro[i].nome);
                         novosDados.push(novoRegistro[i].qtdpostagens);
                     }
-                    VarivelControle = DadosGraficoDonuts; // Pega os dados antigos para comparar
+                    VarivelControle = DadosGraficoDonuts;
                 }else{
                     console.log("TIPO DE GRÁFICO NÃO RECONHECIDO NA ATUALIZAÇÃO: " + Tipo);
-                    return; // Para a execução
+                    return; 
 
                 }
                 
@@ -344,7 +342,7 @@ function AtualizarGrafico(Tipo, grafico) {
 
                 if (JSON.stringify(novoRegistro) === JSON.stringify(VarivelControle)) {
                     console.log("---------------------------------------------------------------");
-                    console.log("Como não há dados novos para captura, o gráfico não atualizará.");
+                    console.log("Como não há dados novos para captura, o gráfico não atualizará." + Tipo);
                     console.log("---------------------------------------------------------------");
                 } else {
                     console.log("---------------------------------------------------------------");
@@ -363,7 +361,7 @@ function AtualizarGrafico(Tipo, grafico) {
                     }
                 }
 
-                // Agenda a próxima atualização
+                // Agendar a proxima atualização
                 var proximaAtualizacao = setTimeout(() => AtualizarGrafico(Tipo, grafico), 2000);
             });
         } else {
@@ -376,10 +374,19 @@ function AtualizarGrafico(Tipo, grafico) {
     });
 }
 
+
+
+
+
+var btnLogout = document.getElementById('btnLogout');
+if (btnLogout) {
+    btnLogout.addEventListener('click', FnDeslogar);
+}
+
 function FnDeslogar(){
-    console.log("TESTE")
-    sessionStorage.EMAIL_USUARIO = null;
-    sessionStorage.NOME_USUARIO = null;
-    sessionStorage.ID_USUARIO = null;
+    console.log("Deslogando...")
+    sessionStorage.EMAIL_USUARIO = "";
+    sessionStorage.NOME_USUARIO = "";
+    sessionStorage.ID_USUARIO = "";
     window.location.assign("./")
 }

@@ -57,27 +57,27 @@ function FnScrollTela(Botao) {
     if (Botao == 'Home') {
         window.scrollTo({
             top: 0,
-            behavior: "smooth" // Isso faz a rolagem ser suave!
+            behavior: "smooth" 
         });
     } else if (Botao == 'Atlas') {
         Atlas.scrollIntoView({
             behavior: "smooth",
-            block: "start" // Alinha o topo do elemento com o topo da tela
+            block: "start" 
         });
     } else if (Botao == 'Historia') {
         Historia.scrollIntoView({
             behavior: "smooth",
-            block: "start" // Alinha o topo do elemento com o topo da tela
+            block: "start"
         });
     } else if (Botao == 'Exploradores') {
         Exploradores.scrollIntoView({
             behavior: "smooth",
-            block: "center" // Alinha o topo do elemento com o topo da tela
+            block: "center" 
         });
     }else if(Botao == 'ME'){
          ME.scrollIntoView({
             behavior: "smooth",
-            block: "center" // Alinha o topo do elemento com o topo da tela
+            block: "center" 
         });
     }
 

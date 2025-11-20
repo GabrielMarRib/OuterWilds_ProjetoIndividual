@@ -24,12 +24,12 @@ async function KPIS(req, res) {
             dashboardModel.TotalCurtidas(idusuario)
         ]);
 
-        
+        // console.log("VALORES DA DASH NO CONTROLLER: "+JSON.stringify(mediaResult) +'/'+ JSON.stringify(postagemResult) +'/'+ JSON.stringify(totalPostResult) +'/'+ JSON.stringify(totalCurtidasResult))
         const ResultadoFinal = {
-            MediaCurtidas: mediaResult.length > 0 ? mediaResult[0].MediaCurtidas : 'Não encontrado',
-            PostagemMaisCurtida: postagemResult.length > 0 ? postagemResult[0] : 'Não encontrado',
-            TotalPostagem: totalPostResult.length > 0 ? totalPostResult[0].TotalPostagem : 'Não encontrado',
-            TotalCurtidas: totalCurtidasResult.length > 0 ? totalCurtidasResult[0].TotalCurtidas : 'Não encontrado'
+            MediaCurtidas: mediaResult.length > 0 && mediaResult[0].MediaCurtidas != null ? mediaResult[0].MediaCurtidas : 0,
+            PostagemMaisCurtida: postagemResult.length > 0 && postagemResult[0] != null ? postagemResult[0] : 0,
+            TotalPostagem: totalPostResult.length > 0 && totalPostResult[0].TotalPostagem != null ? totalPostResult[0].TotalPostagem : 0,
+            TotalCurtidas: totalCurtidasResult.length > 0 && totalCurtidasResult[0].TotalCurtidas != null ? totalCurtidasResult[0].TotalCurtidas : 0
         };
 
      
