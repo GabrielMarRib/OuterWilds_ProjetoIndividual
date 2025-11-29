@@ -1,3 +1,4 @@
+// const { createElement } = require("react");
 
 function Alerta(Msg, Cor) {
     if (Msg == '') {
@@ -30,14 +31,15 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     //Limpar postagens 
-     var Postagens = document.getElementById('IDcontainer-postagens');
+    var Postagens = document.getElementById('IDcontainer-postagens');
     Postagens.innerHTML = ""
     DadosPostagens = []
 
-
-
     // OBTER POSTAGENS
-    ObterPostagens()
+    // ObterPostagens()
+
+    // OBTER COMENTARIOS
+    ObterComentario()
 
 
 });
@@ -77,6 +79,7 @@ function ObterPostagens() {
 
 function PlotarPostagens(){
     var ElementoPai = document.getElementById('IDcontainer-postagens');
+    ElementoPai.innerHTML = "";
 
     for (var i = DadosPostagens.length -1; i >= 0; i--) {
         console.log(i + "/" + DadosPostagens.length)
@@ -128,7 +131,8 @@ function PlotarPostagens(){
         imgLike.src = './assets/Forum/Like-blank.png';
         imgLike.alt = 'Like';
         imgLike.setAttribute('id', `ImgLike${i}`)
-        imgLike.setAttribute('onclick', `Curtir('LikeId${i}', 'ImgLike${i}')`)
+        imgLike.setAttribute('onclick', `Curtir('LikeId${i}',  ${DadosPostagens[i].idpostagem}, 'ImgLike${i}')`)
+            
         divLike.appendChild(imgLike);
 
         // Botão Comentários
@@ -137,6 +141,7 @@ function PlotarPostagens(){
         var imgComentarios = document.createElement('img');
         imgComentarios.src = './assets/Forum/bater-papo.png';
         imgComentarios.alt = 'Comentários';
+        divComentarios.setAttribute('onclick', `FnBarraComentario('IDcontainercomentario${i}')`)
         divComentarios.appendChild(imgComentarios);
 
         // LIKE&COMENTARIO
@@ -150,17 +155,84 @@ function PlotarPostagens(){
         // Descrição
         var containerDescricao = document.createElement('div');
         containerDescricao.classList.add('container-descricao');
-        
         var descricao = document.createElement('p');
-        
         descricao.textContent = DadosPostagens[i].descricao 
-        
         containerDescricao.appendChild(descricao);
+        
+        
+        // COMENTARIO
+        var containermaincomentarios = document.createElement('div')
+        containermaincomentarios.classList.add('container-main-comentarios')
+         containermaincomentarios.setAttribute('id', `IDcontainercomentario${i}`)
+
+            var containercomentarios = document.createElement('div');
+            containercomentarios.classList.add('container-comentarios');
+        
+
+            var comentariosDoPost = [];
+
+            for (let j = 0; j < Dadoscomentarios.length; j++) {
+                const filter = Dadoscomentarios[j];
+
+                if (filter.fk_idpostagem == DadosPostagens[i].idpostagem) {
+                    comentariosDoPost.push(filter);
+                }
+            }
+
+
+            console.log("Comentarios da postagem: " + JSON.stringify(comentariosDoPost))
+            if(comentariosDoPost == 0 || comentariosDoPost == ""){
+                    var divcomentario = document.createElement('div')
+                        var h5 = document.createElement('h5')
+                        h5.innerHTML = 'NÂO TEM COMENTARIOS'
+                        /**/divcomentario.appendChild(h5);
+                    /**/containercomentarios.appendChild(divcomentario);
+            }else{
+
+                for (var b = 0; b < comentariosDoPost.length; b++) {
+                    var divcomentario = document.createElement('div')
+                    divcomentario.classList.add('div-comentario')
+                    divcomentario.setAttribute('id', `cometario-${b}-postagem-${comentariosDoPost[b].idPostagem}`)
+                    var h5 = document.createElement('h5')
+                    var p = document.createElement('p')
+                    h5.innerHTML = comentariosDoPost[b].usuario
+                    p.innerHTML = comentariosDoPost[b].comentario
+                    /**/divcomentario.appendChild(h5);
+                    /**/divcomentario.appendChild(p);
+                    
+                    //Dadoscomentarios
+                    /**/containercomentarios.appendChild(divcomentario);
+                    
+                }
+            }
+
+            var containercomentar = document.createElement('div');
+            containercomentar.classList.add('container-comentar');
+                var inputcomentario = document.createElement('input')
+                inputcomentario.type = 'text'
+                inputcomentario.placeholder = 'Que poste bacana!'
+                inputcomentario.setAttribute('id', `input-comentario-${DadosPostagens[i].idpostagem}`)
+                inputcomentario.maxLength = '30'
+                var botaopostar = document.createElement('button')
+                botaopostar.innerText = "POSTAR";
+                botaopostar.setAttribute('onclick', `FnPostarComentario(${DadosPostagens[i].idpostagem})`);
+                /**/containercomentar.appendChild(inputcomentario);
+                /**/containercomentar.appendChild(botaopostar);
+
+
+
+            /**/containermaincomentarios.appendChild(containercomentarios);
+            /**/containermaincomentarios.appendChild(containercomentar);
+            
+
+
+
 
         // Montagem Final
         NovaPostagem.appendChild(containerImagem); 
         NovaPostagem.appendChild(barraLikeTitulo);
         NovaPostagem.appendChild(containerDescricao);
+        NovaPostagem.appendChild(containermaincomentarios); 
         ElementoPai.appendChild(NovaPostagem);
     }
 
@@ -213,9 +285,11 @@ function FnPostar(){
 
     }
 
+// IMAGEM DO INPUT
+function Curtir(IdElementoLike, idpostagem, idElementoImagem){
+    FnCurtirBanco(IdElementoLike, idpostagem)
 
-function Curtir(IdElementoLike, idElementoImagem){
-    console.log("Caiu na função" + IdElementoLike)
+
     Input_QtdCurtidas = document.getElementById(IdElementoLike)
     Input_ImgCurtida = document.getElementById(idElementoImagem)
     QtdCurtidas = Number(Input_QtdCurtidas.innerHTML)
@@ -229,4 +303,98 @@ function Curtir(IdElementoLike, idElementoImagem){
         Input_QtdCurtidas.innerHTML = (QtdCurtidas - 1)
     }
 
+}
+// NO BANCO DE DADOS
+function FnCurtirBanco(Idlike, Idpostagem){
+    var IDlike = document.getElementById(Idlike)
+    
+
+     fetch("/forum/curtir", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            idpostagem: Idpostagem
+        })
+    })
+
+        .then(function (Resultado) {
+
+            console.log("RESULTADO DA curtida: " + JSON.stringify(Resultado));
+            
+        })
+        .catch(function (erro) {
+
+            console.log("Erro na requisição: " + erro);
+             Alerta("Erro em curtir", 'red')
+                
+        });
+
+}
+var Dadoscomentarios = []
+function ObterComentario(){
+
+    console.log("TESTE")
+    fetch('/forum/obtercomentarios').then(function (resultado) {
+        console.log(resultado)
+        resultado.json().then(function (resultado) {
+
+            Dadoscomentarios = resultado; 
+            console.log("Comentários carregados:", Dadoscomentarios);
+           
+
+            ObterPostagens()
+
+        }).catch(function (erro){
+            console.error(erro)
+    });
+
+
+    }).catch(function (erro) {
+        console.error(erro)
+    });
+
+}
+function FnPostarComentario(idPostagem) {
+    
+    var idUsuario = sessionStorage.getItem('ID_USUARIO');
+    
+    var input = document.getElementById(`input-comentario-${idPostagem}`);
+    var textoComentario = input.value;
+
+    if (textoComentario == "") {
+        Alerta("Escreva algo para comentar!", 'grey');
+        return;
+    }
+
+    fetch("/forum/publicarcomentario", { 
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            idPostagem: idPostagem,
+            idUsuario: idUsuario,
+            comentario: textoComentario
+        })
+    })
+    .then(resposta => {
+        if (resposta.ok) {
+            console.log("Comentário realizado!");
+            input.value = ""; 
+            
+            ObterComentario(); 
+        } else {
+            Alerta("Erro ao comentar!", 'red');
+        }
+    })
+    .catch(erro => {
+        console.error("Erro na requisição:", erro);
+    });
+}
+function FnBarraComentario(IDCONTAINERCOMENTARIO){
+    IDcontainer = document.getElementById(IDCONTAINERCOMENTARIO)
+
+    IDcontainer.classList.toggle('aberto');
 }

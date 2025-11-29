@@ -15,12 +15,36 @@ function postar(idusuario, imagem, titulo, descricao) {
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
 }
+function curtir(idpostagem) {
+    var instrucaoSql = `
+        update postagem set qtd_curtidas = qtd_curtidas + 1 where idpostagem = ${idpostagem};
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+function obtercomentarios(){
+    var instrucaoSql = `
+        SELECT idcomentario, fk_idpostagem, dt_comentario ,qtd_curtidas, comentario, u.nome as usuario FROM comentario join usuario as u on fk_idusuario = idUsuario;
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
 
-
+function publicarcomentario(idpostagem, idUsuario, comentario){
+    var instrucaoSql = `
+    insert into comentario (fk_idusuario, fk_idpostagem, dt_comentario, qtd_curtidas, comentario) VALUES 
+                            (${idUsuario}, ${idpostagem}, NOW(), 0, "${comentario}");
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
 
 
 
 module.exports = {
     pegarpostagens,
-    postar
+    postar,
+    curtir,
+    obtercomentarios,
+    publicarcomentario
 };
