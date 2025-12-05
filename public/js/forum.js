@@ -82,10 +82,13 @@ function PlotarPostagens(){
     ElementoPai.innerHTML = "";
 
     for (var i = DadosPostagens.length -1; i >= 0; i--) {
+
         console.log(i + "/" + DadosPostagens.length)
         var NovaPostagem = document.createElement('div')
         NovaPostagem.setAttribute('id', `Postagem-${i}`)
         NovaPostagem.classList.add('container-postagem');
+
+
 
         // IMG
         var containerImagem = document.createElement('div');
